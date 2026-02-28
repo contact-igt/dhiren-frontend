@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C2185B;
+  /* Deep Pink */
+  --color-secondary: #1E88A8;
+  /* Teal Blue */
+  --color-success: #4CAF50;
+  /* Green */
+  --color-danger: #E53935;
+  /* Medical Red */
+  --color-accent: #F5F5F5;
+  /* Background Light Grey */
+  --color-surface: #FFFFFF;
+  --color-text-main: #111111;
+  --color-text-muted: #4B5563;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1A202C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.btn-primary {
+  @apply bg-primary text-white px-6 py-3 rounded-full font-bold transition-all hover:brightness-110 active:scale-95 inline-block text-center cursor-pointer shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply border-2 border-primary text-primary px-6 py-3 rounded-full font-bold transition-all hover:bg-accent active:scale-95 inline-block text-center cursor-pointer;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
