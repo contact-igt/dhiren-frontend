@@ -1,219 +1,174 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Phone, ArrowRight, CheckCircle2, Star, Users } from 'lucide-react';
-
-const heroImages = [
-    '/assets/Heroslider/h1.png',
-    '/assets/Heroslider/h2.png',
-    '/assets/Heroslider/h3.png',
-    '/assets/Heroslider/h4.png',
-    '/assets/Heroslider/image.png'
-];
+import { motion } from 'framer-motion';
+import { ArrowRight, MapPin, Search, Stethoscope, Users } from 'lucide-react';
 
 export default function Hero() {
-    const [currentImage, setCurrentImage] = useState(0);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % heroImages.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
-
     return (
-        <section className="relative bg-white pt-24 pb-16 lg:pt-32 lg:pb-32 overflow-hidden">
-            <div className="container-custom relative z-10">
-                <div className="flex flex-col lg:flex-row items-center gap-12 xl:gap-16">
+        <section className="relative bg-white pt-[72px] overflow-hidden min-h-screen flex flex-col justify-center">
 
-                    {/* Left Column: Premium Typography & Content */}
-                    <div className="w-full lg:w-[45%] flex flex-col justify-center">
+            {/* ════════════════════════════════════════
+                MAIN CONTENT ROW
+            ════════════════════════════════════════ */}
+            <div className="container-custom relative z-10 flex-1 flex items-center py-16 lg:py-20">
+                <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 w-full">
+
+                    {/* ─── LEFT: Text ─── */}
+                    <div className="w-full lg:w-[50%] flex flex-col justify-center">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            transition={{ duration: 0.7, ease: 'easeOut' }}
                         >
-                            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white border border-gray-100 shadow-sm rounded-full mb-8">
-                                <div className="w-6 h-6 rounded-full bg-[#E0F2FE] flex items-center justify-center">
-                                    <Star size={12} className="text-[#0284C7] fill-[#0284C7]" />
-                                </div>
-                                <span className="text-xs sm:text-sm font-bold tracking-wide text-primary">
-                                    Mumbai's Premier Eye Care
+                            {/* Eyebrow */}
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 rounded-full mb-6">
+                                <span className="w-2 h-2 rounded-full bg-primary inline-block" />
+                                <span className="text-sm font-bold tracking-wide text-primary">
+                                    Mumbai&apos;s Premier Eye Care
                                 </span>
                             </div>
 
-                            <h1 className="text-[3.5rem] lg:text-[5rem] font-extrabold text-primary leading-[1.05] tracking-tight mb-8">
-                                Vision Care,
-                                <span className="block mt-1">Perfected.</span>
+                            {/* Headline */}
+                            <h1 className="text-[2.8rem] sm:text-[3.4rem] lg:text-[3.8rem] font-extrabold !text-text-main leading-[1.08] tracking-tight mb-6">
+                                Best Eye Care{' '}
+                                <span className="text-primary">Services</span>
+                                <span className="block">Available Now</span>
                             </h1>
 
-                            <p className="text-lg text-text-muted mb-10 max-w-xl leading-relaxed font-medium">
-                                Join over 50,000 satisfied patients who trust <strong>Dr. Vishal Maniar</strong> for advanced, personalized treatments using world-class technology.
+                            {/* Subline */}
+                            <p className="text-[15.5px] text-text-muted mb-8 max-w-[460px] leading-relaxed">
+                                Experience top-tier eye care with tailored treatments for your vision needs.
+                                Trust{' '}
+                                <strong className="text-text-main">Dr. Vishal Maniar</strong> to keep your
+                                vision healthy and vibrant.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row items-stretch gap-4 mb-14">
-                                <Link
-                                    href="/appointment"
-                                    className="group bg-primary text-white text-[15px] px-6 py-4 rounded-[14px] font-bold flex items-center justify-between shadow-lg hover:shadow-xl hover:bg-primary/95 transition-all duration-300 w-full sm:w-[220px]"
-                                >
-                                    <div className="flex items-center gap-3">
-                                        <div className="opacity-80 flex flex-col justify-center">
-                                            <Calendar size={20} strokeWidth={2.5} />
-                                        </div>
-                                        <span className="text-left leading-tight text-white tracking-wide">
-                                            Schedule<br />Visit
-                                        </span>
-                                    </div>
-                                    <div className="opacity-80 group-hover:translate-x-1 group-hover:opacity-100 transition-all">
-                                        <ArrowRight size={20} strokeWidth={2.5} />
-                                    </div>
-                                </Link>
+                            {/* CTA */}
+                            <Link
+                                href="/appointment"
+                                className="inline-flex items-center gap-2.5 bg-primary text-white text-[15px] font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300 mb-10"
+                            >
+                                Book Appointment
+                                <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
+                            </Link>
 
-                                <a
-                                    href="tel:+917715069185"
-                                    className="group bg-white text-text-main border border-gray-200 px-6 py-4 rounded-[14px] font-bold flex items-center gap-4 hover:border-black transition-all shadow-sm w-full sm:w-[200px]"
-                                >
-                                    <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-gray-100 transition-colors">
-                                        <Phone size={18} className="text-text-main" />
-                                    </div>
-                                    <span className="text-[15px] leading-tight">Call Us<br />Now</span>
-                                </a>
-                            </div>
-
-                            {/* Trust Logos / Simple Metrics */}
+                            {/* Stats row */}
                             <div className="flex items-center gap-8 pt-6 border-t border-gray-100">
                                 <div>
-                                    <div className="text-3xl font-extrabold text-text-main mb-0.5">17+</div>
+                                    <div className="text-2xl font-extrabold text-text-main">17+</div>
                                     <div className="text-[11px] font-bold text-text-muted uppercase tracking-widest">Years Exp.</div>
                                 </div>
                                 <div className="w-px h-10 bg-gray-200" />
                                 <div>
-                                    <div className="text-3xl font-extrabold text-text-main mb-0.5">50k+</div>
+                                    <div className="text-2xl font-extrabold text-text-main">50k+</div>
                                     <div className="text-[11px] font-bold text-text-muted uppercase tracking-widest">Surgeries</div>
                                 </div>
                                 <div className="w-px h-10 bg-gray-200 hidden sm:block" />
                                 <div className="hidden sm:block">
-                                    <div className="text-3xl font-extrabold text-text-main mb-0.5">100%</div>
+                                    <div className="text-2xl font-extrabold text-text-main">100%</div>
                                     <div className="text-[11px] font-bold text-text-muted uppercase tracking-widest">Commitment</div>
                                 </div>
                             </div>
                         </motion.div>
                     </div>
 
-                    {/* Right Column: "Dashboard / Widget" Slider Area - Wider */}
-                    <div className="w-full lg:w-[55%] relative flex items-center justify-center h-[400px] sm:h-[500px] lg:h-[550px]">
+                    {/* ─── RIGHT: Image card ─── */}
+                    <div className="w-full lg:w-[50%] flex justify-center items-center relative">
 
-                        {/* Much wider slider area */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                            className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl z-10"
+                            initial={{ opacity: 0, x: 40 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.75, delay: 0.1, ease: 'easeOut' }}
+                            className="relative"
                         >
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={currentImage}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.8 }}
-                                    className="absolute inset-0 bg-gray-100"
-                                >
+                            {/* Pink rounded-square background card */}
+                            <div
+                                className="relative w-[300px] h-[350px] md:w-[360px] md:h-[420px] lg:w-[400px] lg:h-[460px] rounded-[2.5rem] overflow-hidden"
+                                style={{ background: 'linear-gradient(145deg, #C2185B 0%, #ad1457 100%)' }}
+                            >
+                                {/* Doctor image — bottom-anchored so body fills card */}
+                                <Image
+                                    src="/assets/Doctor/dhiren.png"
+                                    alt="Dr. Vishal Maniar"
+                                    fill
+                                    className="object-cover object-top"
+                                    priority
+                                />
+                                {/* Bottom gradient for image depth */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                            </div>
+
+                            {/* Dotted decoration — bottom right */}
+                            <div
+                                className="absolute -bottom-6 -right-6 z-0 pointer-events-none"
+                                style={{
+                                    width: 100,
+                                    height: 100,
+                                    backgroundImage: 'radial-gradient(circle, #C2185B 1.3px, transparent 1.3px)',
+                                    backgroundSize: '12px 12px',
+                                    opacity: 0.35,
+                                }}
+                            />
+
+                            {/* Dotted decoration — top left */}
+                            <div
+                                className="absolute -top-5 -left-5 z-0 pointer-events-none"
+                                style={{
+                                    width: 80,
+                                    height: 80,
+                                    backgroundImage: 'radial-gradient(circle, #C2185B 1.3px, transparent 1.3px)',
+                                    backgroundSize: '12px 12px',
+                                    opacity: 0.25,
+                                }}
+                            />
+
+                            {/* Floating badge — top left of card (like "200+ Best Doctor") */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.6, duration: 0.5 }}
+                                className="absolute top-6 -left-6 lg:-left-10 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 z-20"
+                            >
+                                <div className="w-10 h-10 rounded-full overflow-hidden bg-primary/10 flex-shrink-0">
                                     <Image
-                                        src={heroImages[currentImage]}
-                                        alt={`Dhiren Eye Care ${currentImage + 1}`}
-                                        fill
-                                        style={{ objectFit: 'cover', objectPosition: 'center' }}
-                                        priority={currentImage === 0}
-                                        className="transition-transform duration-[8000ms] ease-out hover:scale-105"
+                                        src="/assets/Doctor/dhiren.png"
+                                        alt="Dr. Vishal Maniar"
+                                        width={40}
+                                        height={40}
+                                        className="object-cover w-full h-full"
                                     />
-                                    {/* Subtle gradient for UI elements visibility */}
-                                    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-                                </motion.div>
-                            </AnimatePresence>
-
-                            {/* Integrated Navigation Inside Pill */}
-                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-black/30 backdrop-blur-md px-5 py-2.5 rounded-full">
-                                {heroImages.map((_, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={() => setCurrentImage(idx)}
-                                        className={`rounded-full transition-all duration-300 ${currentImage === idx
-                                            ? 'w-6 h-1.5 bg-white'
-                                            : 'w-1.5 h-1.5 bg-white/50 hover:bg-white'
-                                            }`}
-                                        aria-label={`Go to slide ${idx + 1}`}
-                                    />
-                                ))}
-                            </div>
-                        </motion.div>
-
-                        {/* Floating Widget 1: Doctor Status (Top Right) */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30, x: 20 }}
-                            animate={{ opacity: 1, y: 0, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="absolute top-10 right-4 lg:-right-8 bg-white p-3.5 pr-6 rounded-[1.25rem] shadow-xl border border-gray-100/50 z-20 flex items-center gap-3.5 hover:-translate-y-1 transition-transform cursor-default"
-                        >
-                            <div className="relative">
-                                <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
-                                    <Image src="/assets/Doctor/dhiren.png" alt="Dr. Vishal Maniar" width={48} height={48} className="object-cover w-full h-full" />
                                 </div>
-                                <div className="absolute top-0 right-0 w-3.5 h-3.5 bg-[#10B981] rounded-full border-[2.5px] border-white z-10" />
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="font-bold text-primary text-[14px] leading-tight mb-0.5">Dr. Vishal Maniar</span>
-                                <span className="text-[11px] text-text-muted font-bold leading-tight">Available for Consult</span>
-                            </div>
-                        </motion.div>
-
-                        {/* Floating Widget 2: Patient Satisfaction (Bottom Left) */}
-                        <motion.div
-                            initial={{ opacity: 0, y: -30, x: -20 }}
-                            animate={{ opacity: 1, y: 0, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.7 }}
-                            className="absolute bottom-10 -left-4 lg:-left-12 bg-white p-3.5 pr-6 rounded-[1.25rem] shadow-xl border border-gray-100/50 z-20 hidden sm:flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-default"
-                        >
-                            <div className="flex -space-x-3.5">
-                                {[...Array(3)].map((_, i) => (
-                                    <div key={i} className="w-10 h-10 rounded-full border-[3px] border-white bg-[#E0F2FE] flex items-center justify-center text-[#0284C7] relative z-10 shadow-sm">
-                                        <Users size={16} />
-                                    </div>
-                                ))}
-                                <div className="w-10 h-10 rounded-full border-[3px] border-white bg-primary text-white flex items-center justify-center text-[11px] font-bold relative z-20 shadow-sm">
-                                    +2k
+                                <div>
+                                    <div className="text-[13px] font-extrabold text-text-main leading-tight">50k+</div>
+                                    <div className="text-[11px] text-text-muted font-semibold">Happy Patients</div>
                                 </div>
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="font-bold text-primary text-[14px] leading-tight mb-1">Happy Patients</span>
-                                <div className="flex items-center gap-[2px]">
-                                    <Star size={12} className="fill-[#FBBF24] text-[#FBBF24]" />
-                                    <Star size={12} className="fill-[#FBBF24] text-[#FBBF24]" />
-                                    <Star size={12} className="fill-[#FBBF24] text-[#FBBF24]" />
-                                    <Star size={12} className="fill-[#FBBF24] text-[#FBBF24]" />
-                                    <Star size={12} className="fill-[#FBBF24] text-[#FBBF24]" />
+                            </motion.div>
+
+                            {/* Floating pill — bottom left */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.8, duration: 0.5 }}
+                                className="absolute -bottom-4 left-6 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 z-20"
+                            >
+                                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                    <Users size={15} className="text-primary" />
                                 </div>
-                            </div>
+                                <div>
+                                    <div className="text-[12px] font-bold text-primary leading-tight">Available Now</div>
+                                    <div className="text-[10px] text-text-muted font-medium">Dr. Vishal Maniar</div>
+                                </div>
+                                {/* Online dot */}
+                                <div className="w-2.5 h-2.5 bg-green-500 rounded-full ml-1 flex-shrink-0" />
+                            </motion.div>
                         </motion.div>
-
-                        {/* Floating Widget 3: Quick Success Stat (Bottom Right) */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.9 }}
-                            className="absolute bottom-10 right-6 bg-primary text-white pl-4 pr-6 py-3 rounded-full shadow-xl z-20 flex items-center gap-3 hidden md:flex hover:scale-105 transition-transform cursor-default"
-                        >
-                            <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                                <CheckCircle2 size={14} className="text-[#34D399]" />
-                            </div>
-                            <span className="text-[14px] font-bold tracking-wide">High Success Rate</span>
-                        </motion.div>
-
                     </div>
+
                 </div>
             </div>
+
         </section>
     );
 }

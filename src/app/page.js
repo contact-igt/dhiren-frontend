@@ -4,14 +4,14 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import FounderSection from "@/components/home/FounderSection";
 import Testimonials from "@/components/home/Testimonials";
 import MapSection from "@/components/home/MapSection";
-import { Phone } from 'lucide-react';
+import { Phone, ChevronRight } from 'lucide-react';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <ServicesPreview />
       <FounderSection />
+      <ServicesPreview />
       <WhyChooseUs />
       <Testimonials />
 
@@ -24,10 +24,10 @@ export default function Home() {
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
 
             <div className="md:w-2/3 relative z-10">
-              <span className="inline-block px-5 py-2 mb-6 text-xs sm:text-sm font-bold tracking-widest uppercase bg-danger text-white rounded-full animate-pulse shadow-lg shadow-danger/30">
+              {/* <span className="inline-block px-5 py-2 mb-6 text-xs sm:text-sm font-bold tracking-widest uppercase bg-danger text-white rounded-full animate-pulse shadow-lg shadow-danger/30">
                 Emergency Eye Care
-              </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-md">Need an Eye Specialist?</h2>
+              </span> */}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight !text-white">Need an Eye Specialist?</h2>
               <p className="text-xl opacity-90 max-w-xl font-medium leading-relaxed">
                 Dhiren Eye Care provides quick and effective treatment for urgent eye problems, ensuring you receive the right care without delay.
               </p>
@@ -35,7 +35,7 @@ export default function Home() {
 
             <div className="md:w-1/3 flex flex-col items-center md:items-end gap-6 relative z-10">
               <p className="text-sm font-bold uppercase tracking-widest opacity-80 text-center md:text-right">For Emergency Appointments</p>
-              <a href="tel:+917715069185" className="flex items-center gap-5 text-3xl md:text-4xl font-extrabold hover:scale-105 transition-all duration-300 drop-shadow-lg group">
+              <a href="tel:+917715069185" className="flex items-center gap-5 text-3xl md:text-3xl font-extrabold hover:scale-105 transition-all duration-300 drop-shadow-lg group">
                 <div className="w-16 h-16 bg-white text-primary rounded-2xl flex items-center justify-center shadow-xl group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                   <Phone fill="currentColor" size={28} />
                 </div>
@@ -55,8 +55,11 @@ export default function Home() {
             <p className="text-text-muted">Book your comprehensive eye examination today.</p>
           </div>
           <div className="flex gap-4">
-            <a href="tel:+917715069185" className="btn-primary px-10 py-4 text-lg">
+            <a href="tel:+917715069185" className="btn-primary px-8 !py-4 text-lg !flex items-center gap-4 group">
               Call Now
+              <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white text-primary transition-all duration-300">
+                <Phone size={18} fill="currentColor" />
+              </div>
             </a>
           </div>
         </div>
