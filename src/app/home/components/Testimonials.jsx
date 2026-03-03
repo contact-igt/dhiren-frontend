@@ -103,33 +103,33 @@ export default function Testimonials() {
                     </motion.div>
 
                     {/* ── RIGHT: Content Panel ── */}
-                    <div className="lg:w-[55%] w-full">
+                    <div className="lg:w-[55%] w-full relative">
 
-                        {/* Badge */}
-                        <motion.span
-                            className="inline-flex items-center gap-2 mb-4 text-sm font-bold tracking-widest uppercase text-primary"
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4 }}
-                        >
-                            <span className="w-4 h-[3px] bg-primary rounded-full inline-block" />
-                            Our Testimonials
-                        </motion.span>
+                        {/* Watermark */}
+                        <div className="absolute top-0 left-0 -translate-x-2 -translate-y-10 md:-translate-x-6 md:-translate-y-14 pointer-events-none z-0">
+                            <span className="text-[72px] md:text-[120px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-[#c23c77]/15">
+                                REVIEWS
+                            </span>
+                        </div>
 
-                        {/* Heading */}
-                        <motion.h2
-                            className="text-4xl md:text-[2.6rem] font-extrabold !text-text-main leading-tight tracking-tight mb-8"
+                        {/* Editorial header */}
+                        <motion.div
                             initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.05 }}
+                            transition={{ duration: 0.5 }}
+                            className="relative z-10 group"
                         >
-                            What Our Patients{' '}
-                            <span className="bg-primary text-white px-3 py-0.5 rounded-lg inline-block">
-                                Say
-                            </span>
-                        </motion.h2>
+                            <div className="pl-4 border-l-4 border-[#c23c77] mb-8">
+                                <span className="inline-block px-4 py-1.5 rounded-full bg-gray-50 border border-[#c23c77]/20 text-[#c23c77] text-[11px] font-black tracking-[0.2em] uppercase mb-5 shadow-sm">
+                                    OUR TESTIMONIALS
+                                </span>
+                                <h2 className="text-4xl md:text-[60px] font-[900] tracking-tighter text-gray-900 leading-[1.0] transition-transform duration-500 group-hover:translate-x-2">
+                                    WHAT PATIENTS <br />
+                                    <span className="text-[#c23c77]">SAY</span>
+                                </h2>
+                            </div>
+                        </motion.div>
 
                         {/* Testimonial Card */}
                         <div className="relative min-h-[220px]">

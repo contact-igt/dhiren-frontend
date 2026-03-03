@@ -61,14 +61,31 @@ export default function MapSection() {
 
             <div className="container-custom">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-14">
+                {/* <div className="text-center max-w-3xl mx-auto mb-14">
                     <span className="inline-block mb-3 text-sm font-black tracking-widest uppercase text-primary px-5 py-1.5 bg-primary/20 rounded-full">Our Locations</span>
                     <h2 className="text-4xl md:text-5xl font-black mb-5 text-white tracking-tight">Visit Our Hospital</h2>
                     <p className="text-lg text-white/60 font-medium">
                         Find us across four branches in Mumbai — click a branch to explore.
                     </p>
+                </div> */}
+                {/* ── Header ── */}
+                <div className="flex flex-col md:flex-row md:items-end md:gap-12 mb-20 relative group">
+                    <div className="mt-5 md:mt-0 absolute -top-16 md:-left-10 pointer-events-none z-0">
+                        <span className="text-[12vw] md:text-[180px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-white/5 uppercase">
+                            OUR LOCATIONS
+                        </span>
+                    </div>
+                    <div className="relative z-10 flex gap-8 items-start pl-4 border-l-4 border-white">
+                        <div className="flex flex-col items-start text-left">
+                            <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-white/20 text-primary text-[11px] font-black tracking-[0.2em] uppercase mb-6 shadow-sm">
+                                VISIT OUR HOSPITAL
+                            </span>
+                            <h2 className="text-5xl md:text-[72px] font-[900] tracking-tighter text-white leading-[1.0] transition-transform duration-500 group-hover:translate-x-2 uppercase">
+                                OUR <br /> LOCATIONS
+                            </h2>
+                        </div>
+                    </div>
                 </div>
-
                 {/* Main Layout */}
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
 

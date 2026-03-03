@@ -61,33 +61,36 @@ export default function WhyChooseUs() {
                     </motion.div>
 
                     {/* ── RIGHT: Text + Grid ── */}
-                    <div className="lg:w-[55%] w-full">
+                    <div className="mt-10 md:mt-0 lg:w-[55%] w-full relative">
 
-                        {/* Badge */}
-                        <motion.span
-                            className="inline-flex items-center gap-2 mb-4 text-sm font-bold tracking-widest uppercase text-white/80"
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4 }}
-                        >
-                            <span className="w-4 h-[3px] bg-white rounded-full inline-block" />
-                            Why Choose Us?
-                        </motion.span>
+                        {/* Watermark */}
+                        <div className="absolute top-0 left-0 -translate-x-2 -translate-y-10 md:-translate-x-6 md:-translate-y-14 pointer-events-none z-0">
+                            <span className="text-[72px] md:text-[120px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-white/15">
+                                WHY US?
+                            </span>
+                        </div>
 
-                        {/* Heading */}
-                        <motion.h2
-                            className="text-4xl md:text-[2.6rem] font-extrabold !text-white leading-tight tracking-tight mb-5"
+                        {/* Editorial header */}
+                        <motion.div
                             initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.05 }}
+                            transition={{ duration: 0.5 }}
+                            className="relative z-10 group mb-10"
                         >
-                            Trusted{' '}
-                            <span className="bg-white text-primary px-3 py-0.5 rounded-lg inline-block">
-                                Eye Care
-                            </span>
-                        </motion.h2>
+                            <div className="pl-4 border-l-4 border-white">
+                                <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-white/30 text-primary text-[11px] font-black tracking-[0.2em] uppercase mb-5 shadow-sm">
+                                    WHY CHOOSE US?
+                                </span>
+                                <h2 className="text-4xl md:text-[60px] font-[900] tracking-tighter text-white! leading-[1.0] transition-transform duration-500 group-hover:translate-x-2">
+                                    <span className="relative text-[#fcd34d]!">
+                                        TRUSTED
+                                    </span>
+                                    <br />
+                                    EYE CARE
+                                </h2>
+                            </div>
+                        </motion.div>
 
                         {/* Description */}
                         <motion.p

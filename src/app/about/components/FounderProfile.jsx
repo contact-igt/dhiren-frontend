@@ -5,7 +5,7 @@ import { Target, Eye, ShieldCheck, Award } from 'lucide-react';
 
 const FounderProfile = () => {
     return (
-        <section className="py-40 bg-[#fbfbfd]">
+        <section className="py-30 bg-[#fbfbfd]">
             <div className="container-custom max-w-5xl mx-auto">
                 {/* Header Area */}
                 {/* Editorial Header Area Area */}
@@ -165,7 +165,6 @@ const FounderProfile = () => {
                             </motion.div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

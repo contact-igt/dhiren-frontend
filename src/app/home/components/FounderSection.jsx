@@ -82,29 +82,31 @@ export default function FounderSection() {
                     {/* ════════════════════════════
                         RIGHT — Content panel
                     ════════════════════════════ */}
-                    <div className="lg:w-[58%] w-full relative">
+                    <div className="mt-16 md:mt-0 lg:w-[58%] w-full relative">
 
-                        {/* Watermark text */}
-                        {/* <span className="absolute -top-8 left-0 text-[4.5rem] md:text-[6rem] font-extrabold text-primary/5 select-none leading-none whitespace-nowrap -z-0 pointer-events-none">
-                            Who We Are?
-                        </span> */}
+                        {/* Watermark */}
+                        <div className="absolute top-0 left-0 -translate-x-2 -translate-y-10 md:-translate-x-6 md:-translate-y-14 pointer-events-none z-0">
+                            <span className="text-[68px] md:text-[120px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-[#c23c77]/15">
+                                VISIONARY
+                            </span>
+                        </div>
 
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="relative z-10"
+                            className="relative z-10 group"
                         >
-                            {/* Sub-label */}
-                            <span className="inline-block mb-3 text-sm font-bold tracking-widest uppercase text-primary">
-                                Founder &amp; Chief Surgeon
-                            </span>
-
-                            {/* Name */}
-                            <h2 className="text-4xl md:text-5xl font-extrabold !text-text-main leading-tight tracking-tight mb-2">
-                                Dr. Vishal Maniar
-                            </h2>
+                            {/* Left-border editorial block */}
+                            <div className="pl-4 border-l-4 border-[#c23c77] mb-6">
+                                <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-[#c23c77]/20 text-[#c23c77] text-[11px] font-black tracking-[0.2em] uppercase mb-5 shadow-sm">
+                                    FOUNDER &amp; CHIEF SURGEON
+                                </span>
+                                <h2 className="text-4xl md:text-[60px] font-[900] tracking-tighter text-black leading-[1.0] transition-transform duration-500 group-hover:translate-x-2">
+                                    DR. VISHAL <br /> MANIAR
+                                </h2>
+                            </div>
 
                             {/* Qualifications */}
                             <p className="text-primary font-semibold text-[15px] mb-5 tracking-wide">

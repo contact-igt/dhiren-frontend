@@ -42,43 +42,23 @@ export default function BlogSection() {
         <section className="section-padding bg-[#f5f6fa] overflow-hidden">
             <div className="container-custom">
 
-                {/* ── Header Row ── */}
-                <div className="flex items-end justify-between gap-6 mb-12">
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <span className="inline-flex items-center gap-2 mb-3 text-sm font-bold tracking-widest uppercase text-primary">
-                            <span className="w-4 h-[3px] bg-primary rounded-full inline-block" />
-                            Health Tips & Insights
+                {/* ── Header ── */}
+                <div className="flex flex-col md:flex-row md:items-end gap-12 mb-20 relative group">
+                    <div className="mt-5 md:mt-0 absolute -top-16 md:-left-10 pointer-events-none z-0">
+                        <span className="text-[12vw] md:text-[180px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-[#c23c77]/20 uppercase">
+                            OUR BLOG
                         </span>
-                        <h2 className="text-4xl md:text-[2.6rem] font-extrabold text-text-main leading-tight tracking-tight">
-                            Blog &{' '}
-                            <span className="bg-primary text-white px-3 py-0.5 rounded-lg inline-block">
-                                Articles
+                    </div>
+                    <div className="relative z-10 flex gap-8 items-start pl-4 border-l-4 border-[#c23c77]">
+                        <div className="flex flex-col items-start text-left">
+                            <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-[#c23c77]/20 text-[#c23c77] text-[11px] font-black tracking-[0.2em] uppercase mb-6 shadow-sm">
+                                HEALTH TIPS & INSIGHTS
                             </span>
-                        </h2>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="flex-shrink-0 hidden sm:block"
-                    >
-                        <Link
-                            href="/blog"
-                            className="inline-flex items-center gap-3 bg-[#0f172a] text-white font-black px-6 py-3.5 rounded-full shadow-lg hover:bg-primary transition-all duration-300 hover:scale-105 text-sm group"
-                        >
-                            View All Posts
-                            <div className="w-7 h-7 bg-white text-[#0f172a] rounded-full flex items-center justify-center group-hover:text-primary group-hover:rotate-45 transition-all duration-500">
-                                <ArrowRight size={16} strokeWidth={3} />
-                            </div>
-                        </Link>
-                    </motion.div>
+                            <h2 className="text-5xl md:text-[72px] font-[900] tracking-tighter text-black leading-[1.0] transition-transform duration-500 group-hover:translate-x-2 uppercase">
+                                BLOG & <br /> ARTICLES
+                            </h2>
+                        </div>
+                    </div>
                 </div>
 
                 {/* ── Cards Grid ── */}
@@ -140,14 +120,24 @@ export default function BlogSection() {
                     ))}
                 </div>
 
-                {/* Mobile — View All button */}
-                <div className="mt-10 flex justify-center sm:hidden">
-                    <Link
-                        href="/blog"
-                        className="inline-flex items-center gap-3 bg-[#0f172a] text-white font-black px-6 py-3.5 rounded-full shadow-lg hover:bg-primary transition-all duration-300 text-sm"
+                {/* Bottom-right — View All Posts */}
+                <div className="mt-10 flex justify-end">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
                     >
-                        View All Posts <ArrowRight size={16} strokeWidth={3} />
-                    </Link>
+                        <Link
+                            href="/blog"
+                            className="inline-flex items-center gap-3 bg-[#0f172a] text-white font-black px-6 py-3.5 rounded-full shadow-lg hover:bg-primary transition-all duration-300 hover:scale-105 text-sm group"
+                        >
+                            View All Posts
+                            <div className="w-7 h-7 bg-white text-[#0f172a] rounded-full flex items-center justify-center group-hover:text-primary group-hover:rotate-45 transition-all duration-500">
+                                <ArrowRight size={16} strokeWidth={3} />
+                            </div>
+                        </Link>
+                    </motion.div>
                 </div>
 
             </div>

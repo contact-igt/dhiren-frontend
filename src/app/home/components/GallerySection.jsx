@@ -117,6 +117,6 @@ export default function GallerySection() {
                     padding: 0 8px;
                 }
             `}</style>
-        </section>
+        </section >
     );
 }
