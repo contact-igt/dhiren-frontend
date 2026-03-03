@@ -7,39 +7,39 @@ import { ArrowUpRight } from 'lucide-react';
 const services = [
     {
         title: 'Cataract Treatment',
-        description: 'Advanced sutureless cataract surgery with premium IOL options for crystal clear vision.',
+        description: 'Advanced, safe, and painless cataract removal surgery with premium intraocular lens (IOL) implants to help you regain crystal-clear vision.',
         image: '/assets/services/cataract.png',
         href: '/services#cataract',
     },
     {
-        title: 'LASIK Treatment',
-        description: 'Get rid of glasses forever with our high-precision laser vision correction technology.',
-        image: '/assets/services/lasik.png',
-        href: '/services#lasik',
-    },
-    {
-        title: 'Pediatric Eye Care',
-        description: 'Myopia control, lazy eye treatment, and strabismus correction for children.',
-        image: '/assets/services/pediatric.png',
-        href: '/services#pediatric',
-    },
-    {
-        title: 'Retina Treatment',
-        description: 'Expert care for diabetic retinopathy, macular degeneration, and retinal detachment.',
-        image: '/assets/services/retina.png',
-        href: '/services#retina',
-    },
-    {
-        title: 'Glaucoma Care',
-        description: 'Screening, monitoring eye pressure, laser therapy, and surgery to protect your vision.',
+        title: 'Glaucoma Treatment',
+        description: 'Comprehensive screening and management for this progressive disease that damages the optic nerve and can lead to irreversible vision loss.',
         image: '/assets/services/glaucoma.png',
         href: '/services#glaucoma',
     },
     {
-        title: 'Cornea Treatment',
-        description: 'Specialized diagnostic and surgical solutions for various corneal conditions and disorders.',
+        title: 'LASIK Treatment',
+        description: 'Safe and effective laser vision correction surgery designed to reduce or eliminate the need for glasses and contact lenses.',
+        image: '/assets/services/lasik.png',
+        href: '/services#lasik',
+    },
+    {
+        title: 'Retina Treatment',
+        description: 'Expert care for retinal detachment, diabetic retinopathy, and other conditions affecting the light-sensitive layer at the back of the eye.',
+        image: '/assets/services/retina.png',
+        href: '/services#retina',
+    },
+    {
+        title: 'Squint Treatment',
+        description: 'Correction for eye misalignment (Strabismus) to prevent double vision, lazy eye, and improve social confidence.',
+        image: '/assets/services/pediatric.png',
+        href: '/services#squint',
+    },
+    {
+        title: 'Oculoplasty Treatment',
+        description: 'Specialized plastic and reconstructive surgery for conditions affecting the eyelids, tear ducts, and surrounding facial structures.',
         image: '/assets/services/cornea.png',
-        href: '/services#cornea',
+        href: '/services#oculoplasty',
     },
 ];
 
@@ -64,7 +64,7 @@ export default function ServicesPreview() {
                 </div>
 
                 {/* ── Services Grid ── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 gap-y-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-15 gap-y-20">
                     {services.map((service, index) => (
                         <motion.div
                             key={service.title}
@@ -78,7 +78,7 @@ export default function ServicesPreview() {
                                 className="group flex flex-col rounded-3xl overflow-visible transition-all duration-300"
                             >
                                 {/* ── Card Container ── */}
-                                <div className="relative h-[270px] w-full">
+                                <div className="relative h-[300px] w-full">
                                     {/* Image & Gradient Wrapper — provides rounding and clip */}
                                     <div className="absolute inset-0 rounded-3xl overflow-hidden">
                                         {/* Service Image */}
@@ -95,17 +95,17 @@ export default function ServicesPreview() {
 
                                     {/* ── Bottom Content Overlay — can overflow outside the image wrapper ── */}
                                     <div className="absolute -bottom-8 left-6 right-6 z-20">
-                                        <div className="bg-white rounded-t-2xl p-6  relative translate-y-2 transition-transform duration-300">
+                                        <div className="bg-white rounded-t-2xl p-7 relative translate-y-2 transition-transform duration-300">
                                             {/* Arrow badge — primary pink */}
-                                            <div className="absolute -top-6 right-5 w-12 h-12 rounded-4xl bg-primary flex items-center justify-center shadow-lg z-10 group-hover:bg-secondary group-hover:rotate-12 transition-all duration-300">
-                                                <ArrowUpRight size={22} className="text-white" />
+                                            <div className="absolute -top-6 right-4 w-14 h-14 rounded-4xl bg-primary flex items-center justify-center shadow-lg z-10 group-hover:bg-secondary group-hover:rotate-12 transition-all duration-300">
+                                                <ArrowUpRight size={24} className="text-white" />
                                             </div>
 
                                             {/* Service details */}
-                                            <h3 className="text-lg font-bold !text-primary mt-0.5 mb-4 pr-8">
+                                            <h3 className="text-lg font-bold !text-primary mb-4 pr-8">
                                                 {service.title}
                                             </h3>
-                                            <p className="text-[13.3px] text-text-muted line-clamp-2 leading-6 opacity-90">
+                                            <p className="text-[13.5px] text-text-muted line-clamp-2 leading-6 opacity-90">
                                                 {service.description}
                                             </p>
                                         </div>

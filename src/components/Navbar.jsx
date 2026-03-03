@@ -25,11 +25,11 @@ export default function Navbar() {
 
     return (
         <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm border-b border-gray-100 py-0'}`}>
-            <div className="container-custom flex justify-between items-center h-[72px]">
+            <div className="container-custom flex justify-between items-center h-[85px]">
 
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-                    <div className="relative w-40 h-12 md:w-52 md:h-14">
+                    <div className="relative w-40 h-18 md:w-52 md:h-19">
                         <Image
                             src="/assets/dhiren logo.png"
                             alt="Dhiren Eye Care Logo"
@@ -67,9 +67,9 @@ export default function Navbar() {
                     </a>
                     <Link
                         href="/appointment"
-                        className="flex items-center gap-2 bg-primary text-white text-[14px] font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:brightness-110 transition-all duration-300"
+                        className="flex items-center justify-center gap-2 bg-primary text-white text-[14px] font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:brightness-110 transition-all duration-300"
                     >
-                        <Calendar size={16} />
+                        <Calendar size={16} className='mb-0.5' />
                         Book Appointment
                     </Link>
                 </div>
@@ -100,15 +100,15 @@ export default function Navbar() {
                     <div className="flex flex-col gap-3 mt-3">
                         <Link
                             href="/appointment"
-                            className="btn-primary w-full text-center flex items-center justify-center gap-2"
+                            className="btn-primary !py-3 w-full text-center !flex items-center justify-center gap-2"
                             onClick={() => setIsMenuOpen(false)}
                         >
-                            <Calendar size={18} />
+                            <Calendar size={18} className='mb-0.5' />
                             Book Appointment
                         </Link>
                         <a
                             href="tel:+917715069185"
-                            className="flex items-center justify-center gap-2 text-primary font-bold py-2.5 rounded-full border-2 border-primary/20 bg-primary/5"
+                            className="!py-3 flex items-center justify-center gap-2 text-primary font-bold py-2.5 rounded-full border-2 border-primary/20 bg-primary/5"
                         >
                             <Phone size={18} />
                             Call Now: +91 77150 69185

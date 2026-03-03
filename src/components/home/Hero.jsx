@@ -1,174 +1,145 @@
 "use client";
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Search, Stethoscope, Users } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
+
+const stats = [
+    { value: '17+', label: 'Years of Experience' },
+    { value: '16+', label: 'Specialized Eye Care Services' },
+    { value: '2500+', label: 'Happy Patients Treated' },
+    { value: '100+', label: 'Awards & Recognitions' },
+];
 
 export default function Hero() {
     return (
-        <section className="relative bg-white pt-[72px] overflow-hidden min-h-screen flex flex-col justify-center">
+        <section className="relative bg-text-main pt-[12px] overflow-hidden min-h-screen flex flex-col">
+            {/* ── Full-bleed background image ── */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/assets/Home/banner.png"
+                    alt="Dhiren Eye Care"
+                    fill
+                    className="object-cover object-center opacity-30"
+                    priority
+                />
+                {/* Primary pink tint overlay */}
+                <div className="absolute inset-0 !bg-gradient-to-t from-primary/70 via-primary/40 to-primary/10" />
+                {/* Bottom fade for stats bar */}
+                <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
 
-            {/* ════════════════════════════════════════
-                MAIN CONTENT ROW
-            ════════════════════════════════════════ */}
-            <div className="container-custom relative z-10 flex-1 flex items-center py-16 lg:py-20">
-                <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 w-full">
+            {/* ── Main content ── */}
+            <div className="relative z-10 flex-1 flex items-center">
+                <div className="container-custom py-20 lg:py-28 w-full">
+                    <div className="max-w-2xl">
 
-                    {/* ─── LEFT: Text ─── */}
-                    <div className="w-full lg:w-[50%] flex flex-col justify-center">
+                        {/* Eyebrow badge */}
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.7, ease: 'easeOut' }}
+                            initial={{ opacity: 0, y: -12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-white/15 backdrop-blur-sm rounded-full border border-white/25 mb-8"
                         >
-                            {/* Eyebrow */}
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 rounded-full mb-6">
-                                <span className="w-2 h-2 rounded-full bg-primary inline-block" />
-                                <span className="text-sm font-bold tracking-wide text-primary">
-                                    Mumbai&apos;s Premier Eye Care
-                                </span>
-                            </div>
+                            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse flex-shrink-0" />
+                            <span className="text-sm font-bold tracking-wide text-white">
+                                Mumbai&apos;s Premier Eye Care Hospital
+                            </span>
+                        </motion.div>
 
-                            {/* Headline */}
-                            <h1 className="text-[2.8rem] sm:text-[3.4rem] lg:text-[3.8rem] font-extrabold !text-text-main leading-[1.08] tracking-tight mb-6">
-                                Best Eye Care{' '}
-                                <span className="text-primary">Services</span>
-                                <span className="block">Available Now</span>
-                            </h1>
+                        {/* Headline */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.65, delay: 0.1 }}
+                            className="text-[3rem] sm:text-[3.8rem] lg:text-[4.5rem] font-black !text-white leading-[1.05] tracking-tight mb-6"
+                        >
+                            Expert Vision Care and{' '}
+                            <span className="text-[#FCD34D]">Trusted Eye Specialists</span>
+                        </motion.h1>
 
-                            {/* Subline */}
-                            <p className="text-[15.5px] text-text-muted mb-8 max-w-[460px] leading-relaxed">
-                                Experience top-tier eye care with tailored treatments for your vision needs.
-                                Trust{' '}
-                                <strong className="text-text-main">Dr. Vishal Maniar</strong> to keep your
-                                vision healthy and vibrant.
-                            </p>
+                        {/* Sub-heading */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.65, delay: 0.2 }}
+                            className="text-base sm:text-lg text-white/85 mb-10 max-w-xl leading-relaxed font-medium"
+                        >
+                            Experience world-class eye care with advanced diagnostics and surgical precision. Led by <strong className="text-white">Dr. Vishal Maniar</strong>, we combine cutting-edge technology with compassionate care to protect and enhance your vision.
+                        </motion.p>
 
-                            {/* CTA */}
+                        {/* CTAs row */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.65, delay: 0.3 }}
+                            className="flex flex-wrap items-center gap-4 mb-14"
+                        >
                             <Link
                                 href="/appointment"
-                                className="inline-flex items-center gap-2.5 bg-primary text-white text-[15px] font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300 mb-10"
+                                className="inline-flex items-center gap-3 bg-white text-primary font-black px-7 py-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 text-sm"
                             >
                                 Book Appointment
-                                <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
+                                <div className="w-7 h-7 bg-primary text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
+                                    <ArrowRight size={16} strokeWidth={3} />
+                                </div>
                             </Link>
-
-                            {/* Stats row */}
-                            <div className="flex items-center gap-8 pt-6 border-t border-gray-100">
-                                <div>
-                                    <div className="text-2xl font-extrabold text-text-main">17+</div>
-                                    <div className="text-[11px] font-bold text-text-muted uppercase tracking-widest">Years Exp.</div>
-                                </div>
-                                <div className="w-px h-10 bg-gray-200" />
-                                <div>
-                                    <div className="text-2xl font-extrabold text-text-main">50k+</div>
-                                    <div className="text-[11px] font-bold text-text-muted uppercase tracking-widest">Surgeries</div>
-                                </div>
-                                <div className="w-px h-10 bg-gray-200 hidden sm:block" />
-                                <div className="hidden sm:block">
-                                    <div className="text-2xl font-extrabold text-text-main">100%</div>
-                                    <div className="text-[11px] font-bold text-text-muted uppercase tracking-widest">Commitment</div>
-                                </div>
-                            </div>
+                            <a
+                                href="tel:+918433983169"
+                                className="inline-flex items-center gap-3 backdrop-blur-sm font-bold px-7 py-5 rounded-full bg-primary text-white transition-all duration-300 hover:scale-105 hover:bg-primary/90 text-sm shadow-2xl"
+                            >
+                                <Phone size={18} fill="currentColor" />
+                                Call Us Now
+                            </a>
                         </motion.div>
                     </div>
 
-                    {/* ─── RIGHT: Image card ─── */}
-                    <div className="w-full lg:w-[50%] flex justify-center items-center relative">
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 40 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.75, delay: 0.1, ease: 'easeOut' }}
-                            className="relative"
-                        >
-                            {/* Pink rounded-square background card */}
-                            <div
-                                className="relative w-[300px] h-[350px] md:w-[360px] md:h-[420px] lg:w-[400px] lg:h-[460px] rounded-[2.5rem] overflow-hidden"
-                                style={{ background: 'linear-gradient(145deg, #C2185B 0%, #ad1457 100%)' }}
-                            >
-                                {/* Doctor image — bottom-anchored so body fills card */}
-                                <Image
-                                    src="/assets/Doctor/dhiren.png"
-                                    alt="Dr. Vishal Maniar"
-                                    fill
-                                    className="object-cover object-top"
-                                    priority
-                                />
-                                {/* Bottom gradient for image depth */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
-                            </div>
-
-                            {/* Dotted decoration — bottom right */}
-                            <div
-                                className="absolute -bottom-6 -right-6 z-0 pointer-events-none"
-                                style={{
-                                    width: 100,
-                                    height: 100,
-                                    backgroundImage: 'radial-gradient(circle, #C2185B 1.3px, transparent 1.3px)',
-                                    backgroundSize: '12px 12px',
-                                    opacity: 0.35,
-                                }}
-                            />
-
-                            {/* Dotted decoration — top left */}
-                            <div
-                                className="absolute -top-5 -left-5 z-0 pointer-events-none"
-                                style={{
-                                    width: 80,
-                                    height: 80,
-                                    backgroundImage: 'radial-gradient(circle, #C2185B 1.3px, transparent 1.3px)',
-                                    backgroundSize: '12px 12px',
-                                    opacity: 0.25,
-                                }}
-                            />
-
-                            {/* Floating badge — top left of card (like "200+ Best Doctor") */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.6, duration: 0.5 }}
-                                className="absolute top-6 -left-6 lg:-left-10 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 z-20"
-                            >
-                                <div className="w-10 h-10 rounded-full overflow-hidden bg-primary/10 flex-shrink-0">
-                                    <Image
-                                        src="/assets/Doctor/dhiren.png"
-                                        alt="Dr. Vishal Maniar"
-                                        width={40}
-                                        height={40}
-                                        className="object-cover w-full h-full"
-                                    />
+                    {/* Patient avatar cluster + count — Floating Right as in image */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.65, delay: 0.45 }}
+                        className="relative lg:absolute lg:top-[40%] lg:-translate-y-1/2 lg:right-[10%] flex items-center gap-4 mt-10 lg:mt-0"
+                    >
+                        {/* Avatar stack */}
+                        <div className="flex -space-x-4">
+                            {[
+                                'https://randomuser.me/api/portraits/men/32.jpg',
+                                'https://randomuser.me/api/portraits/women/44.jpg',
+                                'https://randomuser.me/api/portraits/men/45.jpg',
+                            ].map((src, i) => (
+                                <div key={i} className="w-12 h-12 rounded-full border-2 border-white overflow-hidden shadow-lg flex-shrink-0">
+                                    <img src={src} alt="Patient" className="w-full h-full object-cover" />
                                 </div>
-                                <div>
-                                    <div className="text-[13px] font-extrabold text-text-main leading-tight">50k+</div>
-                                    <div className="text-[11px] text-text-muted font-semibold">Happy Patients</div>
-                                </div>
-                            </motion.div>
-
-                            {/* Floating pill — bottom left */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.8, duration: 0.5 }}
-                                className="absolute -bottom-4 left-6 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 z-20"
-                            >
-                                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                    <Users size={15} className="text-primary" />
-                                </div>
-                                <div>
-                                    <div className="text-[12px] font-bold text-primary leading-tight">Available Now</div>
-                                    <div className="text-[10px] text-text-muted font-medium">Dr. Vishal Maniar</div>
-                                </div>
-                                {/* Online dot */}
-                                <div className="w-2.5 h-2.5 bg-green-500 rounded-full ml-1 flex-shrink-0" />
-                            </motion.div>
-                        </motion.div>
-                    </div>
-
+                            ))}
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-white font-black text-2xl leading-none">2500+</span>
+                            <span className="text-white/80 text-[11px] font-bold uppercase tracking-widest mt-1">Happy Patients</span>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
 
+            {/* ── Stats bar — pinned to bottom ── */}
+            <div className="relative z-10 bg-white/10 backdrop-blur-md border-t border-white/15">
+                <div className="container-custom py-7">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-white/20">
+                        {stats.map((stat, i) => (
+                            <motion.div
+                                key={stat.label}
+                                initial={{ opacity: 0, y: 16 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.5 + i * 0.08 }}
+                                className="text-center px-6"
+                            >
+                                <div className="text-3xl md:text-4xl font-black text-white mb-1">{stat.value}</div>
+                                <div className="text-[11px] text-white/65 font-bold uppercase tracking-widest">{stat.label}</div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </section>
     );
 }

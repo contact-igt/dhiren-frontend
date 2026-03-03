@@ -11,7 +11,7 @@ export default function Footer() {
                 {/* Column 1: About */}
                 <div>
                     <Link href="/" className="mb-6 block">
-                        <div className="relative w-48 h-12">
+                        <div className="relative w-48 h-20">
                             <Image
                                 src="/assets/dhiren logo.png"
                                 alt="Dhiren Eye Care Logo"
@@ -61,11 +61,11 @@ export default function Footer() {
                     <ul className="space-y-4 text-text-muted">
                         <li className="flex items-start gap-3">
                             <MapPin size={20} className="text-secondary flex-shrink-0 mt-1" />
-                            <span>123, Anna Salai, Teynampet, Chennai, Tamil Nadu 600018</span>
+                            <span>C-2A, Padmavati Apartment, Ground Floor, T.H. Kataria Marg, Mumbai-400016</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Phone size={20} className="text-secondary flex-shrink-0" />
-                            <a href="tel:+911234567890" className="hover:text-primary">+91 12345 67890</a>
+                            <a href="tel:+911234567890" className="hover:text-primary">+91 84339 83169</a>
                         </li>
                         <li className="flex items-center gap-3">
                             <Mail size={20} className="text-secondary flex-shrink-0" />

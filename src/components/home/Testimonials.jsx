@@ -1,163 +1,218 @@
 "use client";
+import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const testimonials = [
     {
-        name: 'Suresh Kumar',
-        location: 'Chennai',
-        text: 'Dr. Vishal Maniar is an excellent surgeon. My cataract surgery was seamless and the recovery was very fast. Highly recommend Dhiren Eye Care.',
-        rating: 5
+        name: 'Meena Sharma',
+        patientType: 'Cataract Surgery Patient',
+        text: 'I was suffering from blurry vision due to cataracts. Dr. Vishal Maniar explained everything clearly and performed the surgery with great precision. My vision is crystal clear now. Truly grateful!',
+        rating: 5,
     },
     {
-        name: 'Meenakshi Iyer',
-        location: 'Chennai',
-        text: 'The hospitality and care at Dhiren Eye Care are unmatched. The diagnosis was precise, and the treatment plan was clearly explained.',
-        rating: 5
+        name: 'Rajesh Patel',
+        patientType: 'Parent of Pediatric Patient',
+        text: 'I consulted Dr. Maniar for my child\'s squint problem. His caring approach and expertise made us feel comfortable. The treatment results were excellent. Highly recommended!',
+        rating: 5,
     },
     {
-        name: 'Rahul Sharma',
-        location: 'Chennai',
-        text: 'Best place for eye care in Chennai. The latest technology and the expert guidance of Dr. Maniar made my LASIK experience wonderful.',
-        rating: 5
+        name: 'Rohit Desai',
+        patientType: 'LASIK Patient',
+        text: 'I underwent LASIK under Dr. Maniar\'s care. The process was smooth, painless, and the results exceeded my expectations. I am now glasses-free after 10 years!',
+        rating: 5,
     },
     {
-        name: 'Anitha Raj',
-        location: 'Chennai',
-        text: 'I had a very positive experience at Dhiren Eye Care. The staff is professional, and Dr. Maniar is very patient in answering all queries.',
-        rating: 5
+        name: 'Anjali Mehta',
+        patientType: 'Glaucoma Patient',
+        text: 'Dr. Vishal Maniar is very approachable and attentive. His diagnosis of my glaucoma was timely, and with his treatment plan, my eye pressure is under control.',
+        rating: 5,
     },
     {
-        name: 'Vikram Seth',
-        location: 'Chennai',
-        text: 'The diagnostic facilities are top-notch. I felt very comfortable throughout my consultation and would definitely recommend this hospital.',
-        rating: 5
-    },
-    {
-        name: 'Priya Mani',
-        location: 'Chennai',
-        text: 'Excellent pre and post-operative care. The results of my treatment exceeded expectations. Truly a center of excellence for eye care.',
-        rating: 5
+        name: 'Amit Khanna',
+        patientType: 'General Eye Care Patient',
+        text: 'What impressed me the most about Dr. Maniar was his personal attention and detailed explanation of the procedure. His expertise and care make him the best eye specialist I\'ve visited.',
+        rating: 5,
     }
 ];
 
 export default function Testimonials() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [itemsToShow, setItemsToShow] = useState(3);
 
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 1024) setItemsToShow(3);
-            else if (window.innerWidth >= 768) setItemsToShow(2);
-            else setItemsToShow(1);
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+    const next = useCallback(() => {
+        setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, []);
 
-    const maxIndex = Math.max(0, testimonials.length - itemsToShow);
-
-    const nextSlide = useCallback(() => {
-        setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-    }, [maxIndex]);
-
-    const prevSlide = useCallback(() => {
-        setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-    }, [maxIndex]);
+    const prev = useCallback(() => {
+        setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    }, []);
 
     useEffect(() => {
-        const interval = setInterval(nextSlide, 5000);
+        const interval = setInterval(next, 5000);
         return () => clearInterval(interval);
-    }, [nextSlide]);
+    }, [next]);
+
+    const active = testimonials[currentIndex];
 
     return (
-        <section className="section-padding bg-accent/30 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-[100px] -z-10" />
+        <section className="section-padding bg-[#f9f9ff] relative overflow-hidden">
+            {/* soft background blobs */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] -z-10" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px] -z-10" />
 
-            <div className="container-custom relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-block mb-3 text-sm font-bold tracking-widest uppercase text-secondary">Testimonials</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-primary tracking-tight">What Our Patients Say</h2>
-                    <p className="text-lg text-text-muted font-medium">
-                        Real stories from patients who entrusted their vision to Dhiren Eye Care Hospital.
-                    </p>
-                </div>
+            <div className="container-custom">
+                <div className="flex flex-col lg:flex-row gap-12 xl:gap-20 items-center">
 
-                <div className="relative group">
-                    <div className="overflow-hidden px-4 -mx-4">
-                        <motion.div
-                            className="flex gap-8 xl:gap-10"
-                            animate={{ x: `-${currentIndex * (100 / itemsToShow)}%` }}
-                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        >
-                            {testimonials.map((testimonial, index) => (
-                                <div
-                                    key={index}
-                                    className="flex-shrink-0"
-                                    style={{ width: `calc((100% - ${(itemsToShow - 1) * 2}rem) / ${itemsToShow})` }}
-                                >
-                                    <motion.div
-                                        initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                        viewport={{ once: true, margin: "-50px" }}
-                                        transition={{ duration: 0.6, delay: index * 0.1, type: "spring" }}
-                                        className="bg-white p-8 sm:p-10 rounded-[2rem] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col relative overflow-hidden group h-full"
-                                    >
-                                        <div className="text-secondary mb-8 relative z-10">
-                                            <Quote size={40} fill="currentColor" className="drop-shadow-sm" />
-                                        </div>
-
-                                        <p className="text-base text-text-main/90 font-medium italic mb-10 flex-grow relative z-10 leading-relaxed">
-                                            "{testimonial.text}"
-                                        </p>
-
-                                        <div className="relative z-10 border-t border-gray-100 pt-6">
-                                            <div className="flex text-warning mb-3 gap-1 drop-shadow-sm">
-                                                {[...Array(testimonial.rating)].map((_, i) => (
-                                                    <svg key={i} className="w-[18px] h-[18px] fill-[#FFB800]" viewBox="0 0 24 24">
-                                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-                                                ))}
-                                            </div>
-                                            <h4 className="font-bold text-primary text-lg tracking-tight">{testimonial.name}</h4>
-                                            <p className="text-xs text-text-muted font-bold uppercase tracking-wider mt-1">{testimonial.location}</p>
-                                        </div>
-                                    </motion.div>
-                                </div>
-                            ))}
-                        </motion.div>
-                    </div>
-
-                    {/* Navigation Buttons */}
-                    <button
-                        onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 w-12 h-12 rounded-full bg-white shadow-xl border border-gray-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 z-20 group/btn md:flex hidden"
-                        aria-label="Previous slide"
+                    {/* ── LEFT: Image Panel ── */}
+                    <motion.div
+                        className="lg:w-[45%] w-full relative flex-shrink-0"
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, ease: 'easeOut' }}
                     >
-                        <ChevronLeft size={24} className="group-hover/btn:-translate-x-0.5 transition-transform" />
-                    </button>
-                    <button
-                        onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 w-12 h-12 rounded-full bg-white shadow-xl border border-gray-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 z-20 group/btn md:flex hidden"
-                        aria-label="Next slide"
-                    >
-                        <ChevronRight size={24} className="group-hover/btn:translate-x-0.5 transition-transform" />
-                    </button>
-
-                    {/* Pagination Dots */}
-                    <div className="flex justify-center gap-3 mt-12">
-                        {[...Array(maxIndex + 1)].map((_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setCurrentIndex(i)}
-                                className={`h-2.5 rounded-full transition-all duration-300 ${currentIndex === i ? 'w-10 bg-primary' : 'w-2.5 bg-primary/20 hover:bg-primary/40'
-                                    }`}
-                                aria-label={`Go to slide ${i + 1}`}
+                        {/* Main image */}
+                        <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl">
+                            <Image
+                                src="/assets/Home/testimonial.png"
+                                alt="Doctor with patient"
+                                fill
+                                className="object-cover object-center"
+                                priority
                             />
-                        ))}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                        </div>
+
+                        {/* 2K+ Review badge — bottom-right of image */}
+                        <motion.div
+                            animate={{ y: [0, -8, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                            className="absolute -bottom-6 right-6 lg:-right-6 bg-primary text-white rounded-2xl px-6 py-5 shadow-2xl text-center min-w-[130px]"
+                        >
+                            <div className="text-3xl font-extrabold leading-none">2K+</div>
+                            <div className="text-[13px] font-semibold mt-1 opacity-90">Reviews</div>
+                            <div className="flex justify-center gap-0.5 mt-2">
+                                {[...Array(5)].map((_, i) => (
+                                    <svg key={i} className="w-3 h-3 fill-[#FFD700]" viewBox="0 0 24 24">
+                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* ── RIGHT: Content Panel ── */}
+                    <div className="lg:w-[55%] w-full">
+
+                        {/* Badge */}
+                        <motion.span
+                            className="inline-flex items-center gap-2 mb-4 text-sm font-bold tracking-widest uppercase text-primary"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4 }}
+                        >
+                            <span className="w-4 h-[3px] bg-primary rounded-full inline-block" />
+                            Our Testimonials
+                        </motion.span>
+
+                        {/* Heading */}
+                        <motion.h2
+                            className="text-4xl md:text-[2.6rem] font-extrabold !text-text-main leading-tight tracking-tight mb-8"
+                            initial={{ opacity: 0, y: 15 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.05 }}
+                        >
+                            What Our Patients{' '}
+                            <span className="bg-primary text-white px-3 py-0.5 rounded-lg inline-block">
+                                Say
+                            </span>
+                        </motion.h2>
+
+                        {/* Testimonial Card */}
+                        <div className="relative min-h-[220px]">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentIndex}
+                                    initial={{ opacity: 0, x: 30 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -30 }}
+                                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                >
+                                    {/* Stars */}
+                                    <div className="flex items-center gap-1 mb-5">
+                                        {[...Array(active.rating)].map((_, i) => (
+                                            <svg key={i} className="w-5 h-5 fill-[#FFB800]" viewBox="0 0 24 24">
+                                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                            </svg>
+                                        ))}
+                                        {/* Big quote mark */}
+                                        <span className="ml-auto text-6xl font-serif leading-none text-primary/15 select-none -mt-4">&ldquo;&rdquo;</span>
+                                    </div>
+
+                                    {/* Quote text */}
+                                    <p className="text-[16px] text-text-main/80 leading-relaxed font-medium mb-8 italic">
+                                        &ldquo;{active.text}&rdquo;
+                                    </p>
+
+                                    {/* Author */}
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border-2 border-primary/20">
+                                            <span className="text-primary font-black text-lg">
+                                                {active.name.charAt(0)}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <p className="font-extrabold text-text-main text-[15px] leading-tight">{active.name}</p>
+                                            <p className="text-xs text-text-muted font-semibold mt-0.5 tracking-wide">{active.patientType}</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* ── Navigation Dots + Arrows ── */}
+                        <div className="flex items-center gap-6 mt-10">
+                            {/* Dots */}
+                            <div className="flex gap-2.5">
+                                {testimonials.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setCurrentIndex(i)}
+                                        className={`rounded-full transition-all duration-300 ${currentIndex === i
+                                            ? 'w-8 h-3 bg-primary'
+                                            : 'w-3 h-3 bg-primary/20 hover:bg-primary/40'
+                                            }`}
+                                        aria-label={`Go to testimonial ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* Arrow buttons */}
+                            <div className="flex gap-3 ml-auto">
+                                <button
+                                    onClick={prev}
+                                    className="w-11 h-11 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                                    aria-label="Previous"
+                                >
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M15 18l-6-6 6-6" />
+                                    </svg>
+                                </button>
+                                <button
+                                    onClick={next}
+                                    className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/80 transition-all duration-300 shadow-lg shadow-primary/30"
+                                    aria-label="Next"
+                                >
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M9 18l6-6-6-6" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

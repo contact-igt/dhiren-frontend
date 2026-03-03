@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 const mission = [
-    'Advanced surgical precision',
-    '50,000+ cataract surgeries',
-    'Personalised treatment plans',
+    '50,000+ Successful Cataract surgeries',
+    '10,000+ Refractive procedures',
+    'Precision and patient-centric care',
 ];
 
 const vision = [
-    'Accessible world-class eye care',
-    'Innovation-first approach',
-    'Patient-centred outcomes',
+    'Advanced and accessible eye care',
+    'Innovation and quality in eye care',
+    'Superior patient outcomes and research',
 ];
 
 export default function FounderSection() {
@@ -70,11 +70,11 @@ export default function FounderSection() {
                         <motion.div
                             animate={{ y: [0, -8, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                            className="absolute bottom-0 right-4 md:right-0 z-20 bg-primary text-white rounded-[1.6rem] px-6 py-5 shadow-2xl text-center w-[130px]"
+                            className="absolute -bottom-13 md:-bottom-2 right-3 md:-right-2 z-20 bg-primary text-white rounded-[1.9rem] px-6 py-8 shadow-2xl text-center w-[185px]"
                         >
-                            <div className="text-4xl font-extrabold leading-none">17+</div>
-                            <div className="text-[11px] font-semibold mt-1 leading-snug opacity-90">
-                                Years of<br />Experience in<br />This Field
+                            <div className="text-5xl font-extrabold leading-none">17+</div>
+                            <div className="text-[14px] font-semibold mt-1 leading-5 opacity-90">
+                                Years of<br />Expertise in<br />Eye Care
                             </div>
                         </motion.div>
                     </motion.div>
@@ -85,9 +85,9 @@ export default function FounderSection() {
                     <div className="lg:w-[58%] w-full relative">
 
                         {/* Watermark text */}
-                        <span className="absolute -top-8 left-0 text-[4.5rem] md:text-[6rem] font-extrabold text-primary/5 select-none leading-none whitespace-nowrap -z-0 pointer-events-none">
+                        {/* <span className="absolute -top-8 left-0 text-[4.5rem] md:text-[6rem] font-extrabold text-primary/5 select-none leading-none whitespace-nowrap -z-0 pointer-events-none">
                             Who We Are?
-                        </span>
+                        </span> */}
 
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -113,11 +113,7 @@ export default function FounderSection() {
 
                             {/* Description */}
                             <p className="text-text-muted leading-relaxed text-[15px] mb-8 max-w-xl">
-                                Dr. Vishal Maniar is a highly distinguished ophthalmic surgeon with a remarkable
-                                career spanning over <strong className="text-text-main">17 years</strong>. Founder of{' '}
-                                <strong className="text-primary">Dhiren Eye Care</strong> in 2020, he is an expert in
-                                Cataract Surgery, LASIK, Glaucoma, Retina, and Paediatric Eye Care — committed to
-                                delivering advanced, compassionate, and accessible eye care for all.
+                                Dr. Vishal Maniar is a <strong>highly distinguished ophthalmic surgeon</strong> with a remarkable career spanning over <strong>17 years</strong>. He is an expert in Cataract, LASIK, Glaucoma, and Paediatric Eye Care — committed to delivering advanced, compassionate, and accessible eye care.
                             </p>
 
                             {/* Mission & Vision two-column list */}
@@ -126,7 +122,7 @@ export default function FounderSection() {
                                 <div>
                                     <h4 className="font-extrabold !text-text-main text-[16px] mb-3 flex items-center gap-2">
                                         <span className="w-5 h-[3px] bg-primary rounded-full inline-block" />
-                                        Our Mission
+                                        Surgical Milestones
                                     </h4>
                                     <ul className="space-y-2.5">
                                         {mission.map((item) => (
@@ -144,7 +140,7 @@ export default function FounderSection() {
                                 <div>
                                     <h4 className="font-extrabold !text-text-main text-[16px] mb-3 flex items-center gap-2">
                                         <span className="w-5 h-[3px] bg-primary rounded-full inline-block" />
-                                        Our Vision
+                                        Our Commitment
                                     </h4>
                                     <ul className="space-y-2.5">
                                         {vision.map((item) => (
@@ -160,7 +156,6 @@ export default function FounderSection() {
                             </div>
                         </motion.div>
                     </div>
-
                 </div>
             </div>
         </section>
