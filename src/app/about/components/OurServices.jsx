@@ -144,11 +144,11 @@ const OurServices = () => {
                         Our Services
                     </span>
                 </div>
-                <span className="inline-block px-5 py-2 rounded-full border border-[#c23c77] text-[#c23c77] text-[10px] font-bold tracking-widest uppercase mb-4 bg-white shadow-sm relative z-10">
+                <span className="inline-block px-5 py-2 rounded-full border border-[#c23c77] text-[#c23c77] text-[12px] font-bold tracking-widest uppercase mb-4 bg-white shadow-sm relative z-10">
                     WHAT WE DO
                 </span>
                 {/* Foreground Title */}
-                <h3 className="text-3xl md:text-[42px] font-extrabold tracking-tight text-gray-900 leading-[1.3] relative z-10">
+                <h3 className="text-3xl md:text-[42px] font-extrabold tracking-tight !text-gray-900 leading-[1.3] relative z-10">
                     Comprehensive Eye Care <br className="hidden md:block" />
                     <span className="text-[#c23c77]">by Dr. Vishal Maniar</span>
                 </h3>
@@ -193,13 +193,13 @@ const OurServices = () => {
                                     <h4 className="text-[19px] font-extrabold text-gray-900 mb-3 tracking-tight">
                                         {service.title}
                                     </h4>
-                                    <p className="text-[14px] text-gray-500 leading-relaxed font-medium mb-6 flex-grow">
+                                    <p className="text-[15px] text-gray-500 leading-relaxed font-medium mb-6 flex-grow">
                                         {service.description}
                                     </p>
 
                                     <a
                                         href={service.link}
-                                        className="text-[14px] font-black text-gray-900 tracking-wide hover:text-[#8c224b] transition-colors inline-flex items-center"
+                                        className="text-[15px] font-black text-gray-900 tracking-wide hover:text-[#8c224b] transition-colors inline-flex items-center"
                                     >
                                         Read More
                                     </a>

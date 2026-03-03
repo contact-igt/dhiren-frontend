@@ -14,10 +14,10 @@ const FounderProfile = () => {
                             Meet Our Founder
                         </span>
                     </div>
-                    <span className="inline-block px-5 py-2 rounded-full border border-[#c23c77] text-[#c23c77] text-[10px] font-bold tracking-widest uppercase mb-4 bg-white shadow-sm relative z-10">
+                    <span className="inline-block px-5 py-2 rounded-full border border-[#c23c77] text-[#c23c77] text-[12px] font-bold tracking-widest uppercase mb-4 bg-white shadow-sm relative z-10">
                         FOUNDER & CHIEF SURGEON
                     </span>
-                    <h2 className="text-3xl md:text-[42px] font-extrabold tracking-tight text-gray-900 leading-[1.3] relative z-10">
+                    <h2 className="text-3xl md:text-[42px] font-extrabold tracking-tight !text-gray-900 leading-[1.3] relative z-10">
                         Dr. Vishal Maniar
                     </h2>
                 </div>
@@ -36,9 +36,9 @@ const FounderProfile = () => {
                             className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col relative h-[420px]"
                         >
                             <img
-                                src="/images/founder.jpg"
+                                src="/assets/Doctor/dhiren.png"
                                 alt="Dr. Vishal Maniar"
-                                className="w-full h-full object-cover absolute inset-0"
+                                className="w-full h-full object-cover absolute inset-0 object-top"
                                 onError={(e) => {
                                     e.target.onerror = null;
                                     e.target.src = "https://via.placeholder.com/600x800/f3f4f6/d1d5db?text=Image";
@@ -46,7 +46,7 @@ const FounderProfile = () => {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent" />
                             <div className="absolute bottom-6 left-6 right-6 z-20">
-                                <p className="text-white/80 text-[10px] font-bold tracking-widest uppercase mb-1">Excellence in Vision</p>
+                                <p className="text-white/80 text-[12px] font-bold tracking-widest uppercase mb-1">Excellence in Vision</p>
                                 <p className="text-white font-bold text-lg leading-tight">Leading Ophthalmic Surgeon in Chennai.</p>
                             </div>
                         </motion.div>
@@ -67,7 +67,7 @@ const FounderProfile = () => {
                                     </div>
                                     <h3 className="text-lg font-bold text-[#c23c77]">Vision</h3>
                                 </div>
-                                <p className="text-gray-500 text-[11px] leading-relaxed pl-11">
+                                <p className="text-gray-500 text-[14px] leading-relaxed pl-11">
                                     To ensure a <strong className="text-gray-700 font-semibold">healthy and clear vision</strong> for all individuals, regardless of background.
                                 </p>
                             </div>
@@ -83,7 +83,7 @@ const FounderProfile = () => {
                                     </div>
                                     <h3 className="text-lg font-bold text-[#c23c77]">Mission</h3>
                                 </div>
-                                <p className="text-gray-500 text-[11px] leading-relaxed pl-11">
+                                <p className="text-gray-500 text-[14px] leading-relaxed pl-11">
                                     To deliver <strong className="text-gray-700 font-semibold">high-quality eye care services</strong> that are accessible and affordable for every segment of society.
                                 </p>
                             </div>
@@ -101,12 +101,12 @@ const FounderProfile = () => {
                             className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 w-full"
                         >
                             <h3 className="text-xl font-bold text-[#c23c77] mb-4">About Dr. Maniar</h3>
-                            <p className="text-gray-500 text-[13px] leading-relaxed mb-6 max-w-3xl">
+                            <p className="text-gray-500 text-[15px] leading-relaxed mb-6 max-w-3xl">
                                 The esteemed Founder of Dhiren Eye Care, Dr. Vishal Maniar brings extensive expertise to eye health. He is profoundly committed to delivering personalized, advanced, and safe treatments to every patient that walks through our doors.
                             </p>
                             <div className="flex flex-wrap gap-2">
                                 {['Cataract Surgery', 'Lasik', 'Glaucoma', 'Retina', 'Cornea', 'Pediatric Care', 'Senior Care'].map((tag, idx) => (
-                                    <span key={idx} className="bg-gray-50 text-gray-500 px-3 py-1.5 rounded-md text-[11px] font-semibold border border-gray-100">
+                                    <span key={idx} className="bg-gray-50 text-gray-500 px-3 py-1.5 rounded-md text-[12px] font-semibold border border-gray-100">
                                         {tag}
                                     </span>
                                 ))}
@@ -127,7 +127,7 @@ const FounderProfile = () => {
                                 <div className="relative z-10 w-full flex flex-col items-center">
                                     <div className="text-6xl font-black mb-1">17+</div>
                                     <div className="text-sm font-bold text-white mb-3">Years Experience</div>
-                                    <div className="text-[11px] text-white/80 leading-relaxed font-medium px-4">Dedicated to advanced diagnostic tools like OCT, Perimetry, and YAG Laser.</div>
+                                    <div className="text-[13px] text-white/80 leading-relaxed font-medium px-4">Dedicated to advanced diagnostic tools like OCT, Perimetry, and YAG Laser.</div>
                                 </div>
                             </motion.div>
 
@@ -146,7 +146,7 @@ const FounderProfile = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold mb-2">Quality Policy</h3>
-                                        <p className="text-gray-300 leading-relaxed text-[12px] max-w-[200px] mx-auto">
+                                        <p className="text-gray-300 leading-relaxed text-[14px] max-w-[200px] mx-auto">
                                             To promote <strong className="text-white font-semibold">glasses-free vision</strong>, wherever clinically feasible, within each individual's budget.
                                         </p>
                                     </div>

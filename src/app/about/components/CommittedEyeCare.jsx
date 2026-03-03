@@ -23,10 +23,10 @@ const CommittedEyeCare = () => {
                             Commitment
                         </span>
                     </div>
-                    <span className="inline-block px-5 py-2 rounded-full border border-[#c23c77] text-[#c23c77] text-[10px] font-bold tracking-widest uppercase mb-4 bg-white shadow-sm relative z-10">
+                    <span className="inline-block px-5 py-2 rounded-full border border-[#c23c77] text-[#c23c77] text-[12px] font-bold tracking-widest uppercase mb-4 bg-white shadow-sm relative z-10">
                         WHY CHOOSE US
                     </span>
-                    <h2 className="text-3xl md:text-[42px] font-extrabold tracking-tight text-gray-900 leading-[1.3] relative z-10">
+                    <h2 className="text-3xl md:text-[42px] font-extrabold tracking-tight !text-gray-900 leading-[1.3] relative z-10">
                         Committed Eye Care <br className="hidden md:block" />
                         <span className="text-[#c23c77]">with Dr. Vishal Maniar</span>
                     </h2>
@@ -76,8 +76,8 @@ const CommittedEyeCare = () => {
                                     <Award size={20} className="text-orange-500 stroke-[2.5]" />
                                 </div>
                                 <div>
-                                    <h4 className="text-[15px] font-bold text-gray-900 mb-1">17+ Years Expertise</h4>
-                                    <p className="text-[12.5px] text-gray-500 leading-relaxed pr-2">Extensive experience in advanced surgical procedures.</p>
+                                    <h4 className="text-[16px] font-bold text-gray-900 mb-1">17+ Years Expertise</h4>
+                                    <p className="text-[14px] text-gray-500 leading-relaxed pr-2">Extensive experience in advanced surgical procedures.</p>
                                 </div>
                             </div>
 
@@ -87,8 +87,8 @@ const CommittedEyeCare = () => {
                                     <Zap size={20} className="text-blue-500 stroke-[2.5]" />
                                 </div>
                                 <div>
-                                    <h4 className="text-[15px] font-bold text-gray-900 mb-1">Modern Tech</h4>
-                                    <p className="text-[12.5px] text-gray-500 leading-relaxed pr-2">Equipped with the latest diagnostic and surgical tools.</p>
+                                    <h4 className="text-[16px] font-bold text-gray-900 mb-1">Modern Tech</h4>
+                                    <p className="text-[14px] text-gray-500 leading-relaxed pr-2">Equipped with the latest diagnostic and surgical tools.</p>
                                 </div>
                             </div>
 
@@ -98,8 +98,8 @@ const CommittedEyeCare = () => {
                                     <Users size={20} className="text-green-600 stroke-[2.5]" />
                                 </div>
                                 <div>
-                                    <h4 className="text-[15px] font-bold text-gray-900 mb-1">Trusted by 1000s</h4>
-                                    <p className="text-[12.5px] text-gray-500 leading-relaxed pr-2">A proven record of successful patient outcomes.</p>
+                                    <h4 className="text-[16px] font-bold text-gray-900 mb-1">Trusted by 1000s</h4>
+                                    <p className="text-[14px] text-gray-500 leading-relaxed pr-2">A proven record of successful patient outcomes.</p>
                                 </div>
                             </div>
 
@@ -109,8 +109,8 @@ const CommittedEyeCare = () => {
                                     <HeartPulse size={20} className="text-red-500 stroke-[2.5]" />
                                 </div>
                                 <div>
-                                    <h4 className="text-[15px] font-bold text-gray-900 mb-1">Comprehensive Care</h4>
-                                    <p className="text-[12.5px] text-gray-500 leading-relaxed pr-2">From basic checks to complex surgeries under one roof.</p>
+                                    <h4 className="text-[16px] font-bold text-gray-900 mb-1">Comprehensive Care</h4>
+                                    <p className="text-[14px] text-gray-500 leading-relaxed pr-2">From basic checks to complex surgeries under one roof.</p>
                                 </div>
                             </div>
 

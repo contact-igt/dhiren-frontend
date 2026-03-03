@@ -21,12 +21,18 @@ const HowItWorks = () => {
                             How It Works
                         </span>
                     </div>
-                    <span className="inline-block px-5 py-2 rounded-full border border-white/20 text-white text-[10px] font-bold tracking-widest uppercase mb-4 bg-white/10 backdrop-blur-sm shadow-sm relative z-10">
+                    <span
+                        className="inline-block px-5 py-2 rounded-full border border-white/30 text-white text-[12px] font-bold tracking-[0.15em] uppercase mb-5 bg-white/10 backdrop-blur-md shadow-2xl relative z-10"
+                        style={{ boxShadow: '0 10px 30px -5px rgba(0,0,0,0.2)' }}
+                    >
                         YOUR JOURNEY
                     </span>
-                    <h2 className="text-3xl md:text-[42px] font-extrabold tracking-tight text-[#ffffff] leading-[1.3] relative z-10">
+                    <h2
+                        className="text-3xl md:text-[42px] font-extrabold tracking-tight leading-[1.3] relative z-10"
+                        style={{ color: '#ffffff' }}
+                    >
                         Journey to Clearer Vision <br className="hidden md:block" />
-                        <span className="text-[#ffffff]/90">with Dr. Vishal Maniar</span>
+                        <span style={{ color: 'rgba(255, 255, 255, 0.9)' }}>with Dr. Vishal Maniar</span>
                     </h2>
                 </div>
 
@@ -34,7 +40,7 @@ const HowItWorks = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 relative z-10">
 
                     {/* Connecting Line (Desktop) */}
-                    <div className="hidden md:block absolute top-[90px] left-[16%] right-[16%] h-[1px] border-t-2 border-dashed border-white/30 z-0"></div>
+                    <div className="hidden md:block absolute top-[105px] left-[16%] right-[16%] h-[1px] border-t-2 border-dashed border-white/20 z-0"></div>
 
                     {/* Step 1 */}
                     <motion.div
@@ -59,8 +65,8 @@ const HowItWorks = () => {
                             </div>
                         </div>
 
-                        <h4 className="text-[19px] font-bold text-gray-900 mb-3 px-2 tracking-tight">Book Your Consultation</h4>
-                        <p className="text-[14px] text-gray-500 leading-relaxed font-medium">
+                        <h4 className="text-[17px] font-extrabold text-gray-900 mb-3 px-2 tracking-tight">Book Your Consultation</h4>
+                        <p className="text-[15px] text-gray-500 leading-[1.6] font-medium max-w-[250px]">
                             Schedule an appointment with Dr. Vishal Maniar for a detailed eye check-up and personalized advice.
                         </p>
                     </motion.div>
@@ -88,8 +94,8 @@ const HowItWorks = () => {
                             </div>
                         </div>
 
-                        <h4 className="text-[19px] font-bold text-gray-900 mb-3 px-2 tracking-tight">Comprehensive Evaluation</h4>
-                        <p className="text-[14px] text-gray-500 leading-relaxed font-medium">
+                        <h4 className="text-[17px] font-extrabold text-gray-900 mb-3 px-2 tracking-tight">Comprehensive Evaluation</h4>
+                        <p className="text-[15px] text-gray-500 leading-[1.6] font-medium max-w-[250px]">
                             Undergo advanced diagnostic tests and expert evaluation to detect and treat eye conditions early.
                         </p>
                     </motion.div>
@@ -117,8 +123,8 @@ const HowItWorks = () => {
                             </div>
                         </div>
 
-                        <h4 className="text-[19px] font-bold text-gray-900 mb-3 px-2 tracking-tight">Enjoy Healthy Vision</h4>
-                        <p className="text-[14px] text-gray-500 leading-relaxed font-medium">
+                        <h4 className="text-[17px] font-extrabold text-gray-900 mb-3 px-2 tracking-tight">Enjoy Healthy Vision</h4>
+                        <p className="text-[15px] text-gray-500 leading-[1.6] font-medium max-w-[250px]">
                             With customized treatment and ongoing care, achieve clearer vision and maintain long-term eye health.
                         </p>
                     </motion.div>
