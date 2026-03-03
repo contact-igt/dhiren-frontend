@@ -5,21 +5,32 @@ import { Target, Eye, ShieldCheck, Award } from 'lucide-react';
 
 const FounderProfile = () => {
     return (
-        <section className="py-20 bg-[#fbfbfd]">
+        <section className="py-40 bg-[#fbfbfd]">
             <div className="container-custom max-w-5xl mx-auto">
                 {/* Header Area */}
-                <div className="text-center mb-16 relative flex flex-col items-center justify-center">
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                        <span className="text-[10vw] md:text-[120px] font-black text-gray-200/50 whitespace-nowrap select-none leading-none tracking-tight">
-                            Meet Our Founder
+                {/* Editorial Header Area Area */}
+                <div className="flex flex-col md:flex-row items-end gap-12 mb-20 relative group">
+                    {/* Background Text Watermark - Editorial Position */}
+                    <div className="absolute -top-16 -left-10 pointer-events-none z-0">
+                        <span
+                            className="text-[12vw] md:text-[180px] font-black whitespace-nowrap select-none leading-none tracking-tighter opacity-100"
+                            style={{ color: 'lab(43 65.24 9.02 / 0.21)' }}
+                        >
+                            VISIONARY
                         </span>
                     </div>
-                    <span className="inline-block px-5 py-2 rounded-full border border-[#c23c77] text-[#c23c77] text-[12px] font-bold tracking-widest uppercase mb-4 bg-white shadow-sm relative z-10">
-                        FOUNDER & CHIEF SURGEON
-                    </span>
-                    <h2 className="text-3xl md:text-[42px] font-extrabold tracking-tight !text-gray-900 leading-[1.3] relative z-10">
-                        Dr. Vishal Maniar
-                    </h2>
+
+                    {/* Content Block */}
+                    <div className="relative z-10 flex gap-8 items-start pl-4 border-l-4 border-[#c23c77]">
+                        <div className="flex flex-col items-start text-left">
+                            <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-[#c23c77]/20 text-[#c23c77] text-[11px] font-black tracking-[0.2em] uppercase mb-6 shadow-sm">
+                                FOUNDER & CHIEF SURGEON
+                            </span>
+                            <h2 className="text-5xl md:text-[72px] font-[900] tracking-tighter text-black leading-[1.0] transition-transform duration-500 group-hover:translate-x-2">
+                                DR. VISHAL <br /> MANIAR
+                            </h2>
+                        </div>
+                    </div>
                 </div>
 
                 {/* FINAL STRUCTURE MATCHING SCREENSHOT EXACTLY */}

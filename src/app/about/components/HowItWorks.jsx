@@ -14,26 +14,29 @@ const HowItWorks = () => {
 
             <div className="container-custom max-w-[1100px] mx-auto px-6 lg:px-8 relative z-10">
 
-                {/* Unified Header */}
-                <div className="text-center mb-16 relative flex flex-col items-center justify-center">
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                        <span className="text-[10vw] md:text-[120px] font-black text-white/20 whitespace-nowrap select-none leading-none tracking-tight">
-                            How It Works
+                {/* Editorial Header Area */}
+                <div className="flex flex-col md:flex-row items-end gap-12 mb-20 relative group">
+                    {/* Background Text Watermark - Editorial Position */}
+                    <div className="absolute -top-16 -left-10 pointer-events-none z-0">
+                        <span
+                            className="text-[12vw] md:text-[180px] font-black whitespace-nowrap select-none leading-none tracking-tighter opacity-100"
+                            style={{ color: 'lab(100 0 0 / 0.1)' }}
+                        >
+                            JOURNEY
                         </span>
                     </div>
-                    <span
-                        className="inline-block px-5 py-2 rounded-full border border-white/30 text-white text-[12px] font-bold tracking-[0.15em] uppercase mb-5 bg-white/10 backdrop-blur-md shadow-2xl relative z-10"
-                        style={{ boxShadow: '0 10px 30px -5px rgba(0,0,0,0.2)' }}
-                    >
-                        YOUR JOURNEY
-                    </span>
-                    <h2
-                        className="text-3xl md:text-[42px] font-extrabold tracking-tight leading-[1.3] relative z-10"
-                        style={{ color: '#ffffff' }}
-                    >
-                        Journey to Clearer Vision <br className="hidden md:block" />
-                        <span style={{ color: 'rgba(255, 255, 255, 0.9)' }}>with Dr. Vishal Maniar</span>
-                    </h2>
+
+                    {/* Content Block */}
+                    <div className="relative z-10 flex gap-8 items-start pl-4 border-l-4 border-white/40">
+                        <div className="flex flex-col items-start text-left">
+                            <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-[11px] font-black tracking-[0.2em] uppercase mb-6 shadow-sm backdrop-blur-md">
+                                YOUR JOURNEY
+                            </span>
+                            <h2 className="text-5xl md:text-[72px] font-[900] tracking-tighter !text-white leading-[1.0] transition-transform duration-500 group-hover:translate-x-2">
+                                JOURNEY TO <br /> CLEAR VISION
+                            </h2>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Steps Flow Grid */}

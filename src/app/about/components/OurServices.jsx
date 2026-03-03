@@ -127,82 +127,104 @@ const servicesData = [
 
 const OurServices = () => {
     return (
-        <section className="py-24 bg-[#f8fafc] relative overflow-hidden">
+        <section className="py-40 bg-[#fbfbfd] relative overflow-hidden">
 
-            {/* Ambient Background Glows */}
+            {/* Ambient Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-[5%] left-[10%] w-[500px] h-[500px] rounded-full bg-blue-400/[0.04] blur-[120px]"></div>
-                <div className="absolute bottom-[10%] right-[5%] w-[600px] h-[600px] rounded-full bg-[#c23c77]/[0.04] blur-[150px]"></div>
-                <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[800px] h-[300px] rounded-full bg-orange-400/[0.02] blur-[100px]"></div>
+                <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-[#c23c77]/[0.02] blur-[120px]"></div>
+                <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-blue-500/[0.02] blur-[100px]"></div>
             </div>
 
-            {/* Header Area */}
-            <div className="text-center mb-16 relative flex flex-col items-center justify-center">
-                {/* Background Text Watermark */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                    <span className="text-[10vw] md:text-[120px] font-black text-[#e4ecea] whitespace-nowrap select-none leading-none tracking-tight">
-                        Our Services
-                    </span>
+            {/* Editorial Header Area */}
+            <div className="container-custom max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+                <div className="flex flex-col md:flex-row items-end gap-12 mb-20 relative group">
+                    {/* Background Text Watermark - Editorial Position */}
+                    <div className="absolute -top-16 -left-10 pointer-events-none z-0">
+                        <span
+                            className="text-[12vw] md:text-[180px] font-black whitespace-nowrap select-none leading-none tracking-tighter opacity-100"
+                            style={{ color: 'lab(43 65.24 9.02 / 0.21)' }}
+                        >
+                            SERVICES
+                        </span>
+                    </div>
+
+                    {/* Content Block */}
+                    <div className="relative z-10 flex gap-8 items-start pl-4 border-l-4 border-[#c23c77]">
+                        <div className="flex flex-col items-start text-left">
+                            <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-[#c23c77]/20 text-[#c23c77] text-[11px] font-black tracking-[0.2em] uppercase mb-6 shadow-sm">
+                                WHAT WE DO
+                            </span>
+                            <h2 className="text-5xl md:text-[72px] font-[900] tracking-tighter text-black leading-[1.0] transition-transform duration-500 group-hover:translate-x-2">
+                                COMPREHENSIVE <br /> EYE CARE
+                            </h2>
+                        </div>
+                    </div>
                 </div>
-                <span className="inline-block px-5 py-2 rounded-full border border-[#c23c77] text-[#c23c77] text-[12px] font-bold tracking-widest uppercase mb-4 bg-white shadow-sm relative z-10">
-                    WHAT WE DO
-                </span>
-                {/* Foreground Title */}
-                <h3 className="text-3xl md:text-[42px] font-extrabold tracking-tight !text-gray-900 leading-[1.3] relative z-10">
-                    Comprehensive Eye Care <br className="hidden md:block" />
-                    <span className="text-[#c23c77]">by Dr. Vishal Maniar</span>
-                </h3>
             </div>
 
-            <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="container-custom max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
-                {/* Services Grid - 3 Columns on lg as per screenshot density */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                {/* Services Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
 
                     {servicesData.map((service, index) => {
                         const Icon = service.icon;
                         return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.05 }}
-                                className="bg-white rounded-[24px] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-visible flex flex-col group relative border border-gray-100/50"
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                                whileHover={{ y: -10 }}
+                                className="group relative flex flex-col h-full"
                             >
-                                {/* Image Half */}
-                                <div className="h-[220px] w-full rounded-t-[24px] overflow-hidden relative p-4 pb-0">
-                                    <div className="w-full h-full rounded-t-2xl rounded-b-md overflow-hidden relative">
+                                {/* Main Card Body */}
+                                <div className="relative flex flex-col h-full bg-white rounded-[40px] p-2 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] border border-gray-100/50 transition-all duration-500 group-hover:shadow-[0_30px_60px_-20px_rgba(194,60,119,0.15)] group-hover:border-[#c23c77]/20 overflow-hidden">
+
+                                    {/* Top Image Container */}
+                                    <div className="relative h-[240px] w-full rounded-[32px] overflow-hidden mb-2">
                                         <img
                                             src={service.image || PLACEHOLDER_IMAGE}
                                             alt={service.title}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                         />
-                                        {/* Overlay gradient for depth */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                        {/* Floating Icon Badge - Integrated into Image */}
+                                        <div className="absolute bottom-6 left-6 w-14 h-14 rounded-2xl bg-white/95 backdrop-blur-md flex items-center justify-center shadow-xl group-hover:bg-[#c23c77] group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2">
+                                            <Icon size={26} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
+                                        </div>
                                     </div>
 
-                                    {/* The Distinctive Overlapping Icon Badge */}
-                                    <div className="absolute -bottom-6 right-8 w-14 h-14 rounded-full bg-[#8c224b] text-white flex items-center justify-center shadow-[0_8px_16px_rgba(140,34,75,0.25)] z-20 transition-transform duration-300 group-hover:bg-[#a62b5a]">
-                                        <Icon size={24} strokeWidth={1.5} />
+                                    {/* Textual Content */}
+                                    <div className="flex flex-col flex-grow px-8 py-8">
+                                        <h4 className="text-[22px] font-black text-gray-900 mb-3 tracking-tight group-hover:text-[#c23c77] transition-colors duration-300">
+                                            {service.title}
+                                        </h4>
+                                        <p className="text-[15px] text-gray-500 leading-relaxed font-medium mb-4 flex-grow">
+                                            {service.description}
+                                        </p>
+
+                                        {/* Premium Read More Interaction */}
+                                        <div className="flex items-center justify-between mt-auto pt-2  border-t border-gray-200">
+                                            <a
+                                                href={service.link}
+                                                className="text-[14px] font-black text-gray-900 tracking-wider uppercase flex items-center gap-2 group/btn"
+                                            >
+                                                <span className="relative overflow-hidden inline-block">
+                                                    <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">Read More</span>
+                                                    <span className="absolute left-0 top-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-[#c23c77]">Learn Why</span>
+                                                </span>
+                                            </a>
+                                            <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center transition-all duration-300 group-hover:bg-[#c23c77]/10 group-hover:rotate-45">
+                                                <Plus size={18} className="text-[#c23c77]" />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                {/* Content Half */}
-                                <div className="p-8 pt-10 flex flex-col flex-grow">
-                                    <h4 className="text-[19px] font-extrabold text-gray-900 mb-3 tracking-tight">
-                                        {service.title}
-                                    </h4>
-                                    <p className="text-[15px] text-gray-500 leading-relaxed font-medium mb-6 flex-grow">
-                                        {service.description}
-                                    </p>
-
-                                    <a
-                                        href={service.link}
-                                        className="text-[15px] font-black text-gray-900 tracking-wide hover:text-[#8c224b] transition-colors inline-flex items-center"
-                                    >
-                                        Read More
-                                    </a>
+                                    {/* Decorative Overlay for interaction bloom */}
+                                    <div className="absolute -right-20 -bottom-20 w-40 h-40 bg-[#c23c77]/[0.03] rounded-full blur-[40px] pointer-events-none group-hover:bg-[#c23c77]/[0.08] transition-colors duration-500" />
                                 </div>
                             </motion.div>
                         );

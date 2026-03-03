@@ -1,6 +1,6 @@
 const TopRatedBanner = () => {
     return (
-        <section className="py-12 bg-white relative">
+        <section className="py-20 bg-white relative">
             {/* Subtle top/bottom borders for a clean editorial look */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
@@ -10,7 +10,7 @@ const TopRatedBanner = () => {
 
                     {/* Left: Heading and Stars */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                        <h2 className="text-[13px] md:text-sm font-bold text-gray-400 tracking-[0.2em] uppercase mb-2">
+                        <h2 className="text-[13px] md:text-xl font-bold text-gray-400 tracking-[0.2em] uppercase mb-2">
                             Top Rated Eye Hospital
                         </h2>
 
@@ -24,16 +24,16 @@ const TopRatedBanner = () => {
                             </div>
                             <span className="text-xl font-bold text-gray-900">5.0</span>
                         </div>
-                        <p className="text-[14px] text-gray-500 mt-1 font-medium">Based on over 1,000+ patient reviews</p>
+                        <p className="text-[18px] text-gray-500 mt-1 font-medium">Based on over 1,000+ patient reviews</p>
                     </div>
 
                     {/* Right/Bottom: Minimalist Logos */}
-                    <div className="flex items-center justify-center gap-8 md:gap-12 opacity-80 mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-300">
-                        <img src="/assets/About/add1.png" alt="Practo" className="h-8 md:h-9 object-contain" />
+                    <div className="flex items-center justify-center gap-8 md:gap-12 opacity-80 mix-blend-multiply  transition-all duration-300">
+                        <img src="/assets/About/add1.png" alt="Practo" className="h-8 md:h-12 object-contain" />
                         <div className="w-px h-8 bg-gray-200 hidden md:block"></div>
-                        <img src="/assets/About/add2.png" alt="Justdial" className="h-10 md:h-12 object-contain" />
+                        <img src="/assets/About/add2.png" alt="Justdial" className="h-10 md:h-14 object-contain" />
                         <div className="w-px h-8 bg-gray-200 hidden md:block"></div>
-                        <img src="/assets/About/add3.png" alt="Google" className="h-8 md:h-9 object-contain" />
+                        <img src="/assets/About/add3.png" alt="Google" className="h-8 md:h-12 object-contain" />
                     </div>
 
                 </div>
