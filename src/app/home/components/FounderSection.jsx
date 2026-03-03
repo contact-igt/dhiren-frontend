@@ -86,7 +86,7 @@ export default function FounderSection() {
 
                         {/* Watermark */}
                         <div className="absolute top-0 left-0 -translate-x-2 -translate-y-10 md:-translate-x-6 md:-translate-y-14 pointer-events-none z-0">
-                            <span className="text-[68px] md:text-[120px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-[#c23c77]/15">
+                            <span className="text-[68px] md:text-[110px] xl:text-[130px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-[#c23c77]/10">
                                 VISIONARY
                             </span>
                         </div>

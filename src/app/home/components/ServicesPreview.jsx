@@ -97,7 +97,7 @@ export default function ServicesPreview() {
                 {/* ── Header ── */}
                 <div className="flex flex-col md:flex-row items-start md:items-end gap-10 md:gap-12 mb-16 md:mb-20 relative group">
                     <div className="hidden md:block absolute -top-16 -left-10 pointer-events-none z-0">
-                        <span className="text-[12vw] md:text-[180px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-[#c23c77]/10 uppercase">
+                        <span className="text-[12vw] md:text-[160px] xl:text-[200px] font-black whitespace-nowrap select-none leading-none tracking-tighter text-[#c23c77]/5 uppercase">
                             OUR SERVICES
                         </span>
                     </div>
