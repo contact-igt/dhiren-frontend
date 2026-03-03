@@ -1,5 +1,5 @@
 "use client";
-import SEO from "@/components/SEO";
+import SEO from "@/components/layout/SEO";
 import { motion } from 'framer-motion';
 import { Calendar, Phone, Award, GraduationCap, MapPin } from 'lucide-react';
 import Link from 'next/link';

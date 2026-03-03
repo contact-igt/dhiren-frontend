@@ -1,9 +1,9 @@
-import FounderProfile from './components/FounderProfile';
-import TopRatedBanner from './components/TopRatedBanner';
-import CommittedEyeCare from './components/CommittedEyeCare';
-import HowItWorks from './components/HowItWorks';
-import OurServices from './components/OurServices';
-import AboutHero from './components/AboutHero';
+import FounderProfile from '@/components/about/FounderProfile';
+import TopRatedBanner from '@/components/about/TopRatedBanner';
+import CommittedEyeCare from '@/components/about/CommittedEyeCare';
+import HowItWorks from '@/components/about/HowItWorks';
+import OurServices from '@/components/about/OurServices';
+import AboutHero from '@/components/about/AboutHero';
 
 export default function AboutPage() {
     return (
