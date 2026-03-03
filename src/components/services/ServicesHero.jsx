@@ -1,31 +1,80 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, Home, ShieldCheck, Activity, Users } from 'lucide-react';
 import Image from 'next/image';
+import { useState, useEffect, useCallback } from 'react';
+
+const heroSlides = [
+    // { src: "/assets/Heroslider/h1.png", alt: "Dhiren Eye Care - Advanced Eye Services 1" },
+    { src: "/assets/Heroslider/h2.png", alt: "Dhiren Eye Care - Advanced Eye Services 2" },
+    { src: "/assets/Heroslider/h3.png", alt: "Dhiren Eye Care - Advanced Eye Services 3" },
+    { src: "/assets/Heroslider/h4.png", alt: "Dhiren Eye Care - Advanced Eye Services 4" },
+    { src: "/assets/Heroslider/h5.png", alt: "Dhiren Eye Care - Advanced Eye Services 5" },
+];
+
+const AUTOPLAY_INTERVAL = 4500;
 
 const ServicesHero = () => {
+    const [current, setCurrent] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+
+    const goNext = useCallback(() => {
+        setCurrent((prev) => (prev + 1) % heroSlides.length);
+    }, []);
+
+    const goPrev = useCallback(() => {
+        setCurrent((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    }, []);
+
+    useEffect(() => {
+        if (isPaused) return;
+        const timer = setInterval(goNext, AUTOPLAY_INTERVAL);
+        return () => clearInterval(timer);
+    }, [isPaused, goNext]);
+
     return (
-        <section className="relative h-[100vh] min-h-[500px] w-full flex items-center overflow-hidden bg-[#0a0a0c] mt-20 md:mt-0">
-            {/* Background Layering */}
+        <section
+            className="relative h-[100vh] min-h-[500px] w-full flex items-center overflow-hidden bg-[#0a0a0c] mt-20 md:mt-0"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+        >
+            {/* Background Slider */}
             <div className="absolute inset-0 z-0">
-                <Image
-                    src="/assets/Heroslider/h3.png"
-                    alt="Dhiren Eye Care Services"
-                    fill
-                    className="w-full h-full object-cover opacity-40 scale-105 select-none pointer-events-none"
-                    priority
-                />
+                <AnimatePresence mode="sync">
+                    <motion.div
+                        key={current}
+                        className="absolute inset-0"
+                        initial={{ opacity: 0, scale: 1.06 }}
+                        animate={{ opacity: 1, scale: 1.0 }}
+                        exit={{ opacity: 0, scale: 1.03 }}
+                        transition={{ duration: 1.2, ease: "easeInOut" }}
+                    >
+                        <Image
+                            src={heroSlides[current].src}
+                            alt={heroSlides[current].alt}
+                            fill
+                            className="w-full h-full object-cover object-left md:object-center opacity-65 select-none pointer-events-none"
+                            priority={current === 0}
+                        />
+                    </motion.div>
+                </AnimatePresence>
 
-                {/* Dynamic Brand-colored Blobs */}
-                <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-[#c23c77]/15 blur-[140px] rounded-full" />
-                <div className="absolute bottom-[10%] right-[10%] w-[45%] h-[45%] bg-[#fbb03b]/5 blur-[120px] rounded-full" />
+                {/* Brand-colored Glow Blobs */}
+                <div className="absolute top-[-15%] left-[-8%] w-[55%] h-[65%] bg-[#c23c77]/20 blur-[160px] rounded-full" />
+                <div className="absolute bottom-[-5%] right-[-5%] w-[50%] h-[55%] bg-[#fbb03b]/12 blur-[130px] rounded-full" />
+                <div className="absolute top-[40%] left-[30%] w-[35%] h-[40%] bg-[#c23c77]/8 blur-[100px] rounded-full" />
 
-                {/* Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
-                <div className="absolute inset-0 bg-black/20 z-0" />
+                {/* Directional Gradient Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-black/5 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 z-10" />
+                {/* Extra left-panel darkener for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10" />
+                {/* Soft vignette — edges only, right side kept open */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_30%_50%,transparent_45%,rgba(0,0,0,0.40)_100%)] z-10" />
             </div>
 
+            {/* Main Content */}
             <div className="container-custom relative z-20 w-full px-6 lg:px-12">
                 <div className="max-w-4xl">
                     <motion.div
@@ -42,7 +91,15 @@ const ServicesHero = () => {
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.0] mb-8 tracking-tighter">
                             Advanced <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c23c77] via-[#fbb03b] to-[#c23c77] bg-[length:200%_auto] animate-gradient-flow">
+                            <span
+                                className="text-transparent bg-clip-text animate-gradient-flow"
+                                style={{
+                                    backgroundImage: 'linear-gradient(90deg, #e8326a, #f7693a, #fbb03b, #f7693a, #e8326a)',
+                                    backgroundSize: '250% auto',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                }}
+                            >
                                 Eye Services.
                             </span>
                         </h1>
@@ -78,16 +135,14 @@ const ServicesHero = () => {
                     </motion.div>
                 </div>
             </div>
-
             <style jsx>{`
                 @keyframes gradient-flow {
-                    0% { background-position: 0% 50%; }
-                    50% { background-position: 100% 50%; }
-                    100% { background-position: 0% 50%; }
+                    0%   { background-position: 0% center; }
+                    50%  { background-position: 100% center; }
+                    100% { background-position: 0% center; }
                 }
                 .animate-gradient-flow {
-                    background-size: 200% 200%;
-                    animation: gradient-flow 3s ease infinite;
+                    animation: gradient-flow 4s ease-in-out infinite;
                 }
             `}</style>
         </section>
