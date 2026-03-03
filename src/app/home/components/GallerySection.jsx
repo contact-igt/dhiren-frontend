@@ -5,10 +5,6 @@ import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import Slider from "react-slick";
 
-// Import slick-carousel css
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 const items = [
     { id: 1, label: 'Cataract Surgery', sub: 'Advanced Treatment', image: '/assets/services/cataract.png' },
     { id: 2, label: 'LASIK & Refractive', sub: 'Vision Correction', image: '/assets/services/lasik.png' },
@@ -58,42 +54,75 @@ function GalleryCard({ item }) {
 }
 
 export default function GallerySection() {
+    const [isMounted, setIsMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const settings = {
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 600,
         slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
+        arrows: false,
+        swipe: true,
+        draggable: true,
         responsive: [
+            {
+                breakpoint: 1536,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                }
+            },
             {
                 breakpoint: 1280,
                 settings: {
                     slidesToShow: 4,
+                    slidesToScroll: 1,
                 }
             },
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
+                    slidesToScroll: 1,
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
+                    slidesToScroll: 1,
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 640,
                 settings: {
                     slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                    centerPadding: '40px',
+                }
+            },
+            {
+                breakpoint: 480, // Added for better coverage on smaller mobile screens
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                    centerPadding: '20px', // Slightly reduced padding for very small screens
                 }
             }
         ]
     };
+
+    if (!isMounted) return null;
 
     return (
         <section className="py-16 bg-white overflow-hidden">

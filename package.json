@@ -14,7 +14,7 @@
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-slick": "^0.31.0",
+    "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
     "vercel": "^50.25.4"
   },

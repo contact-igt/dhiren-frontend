@@ -6,6 +6,8 @@ import Testimonials from "@/app/home/components/Testimonials";
 import MapSection from "@/app/home/components/MapSection";
 import BlogSection from "@/app/home/components/BlogSection";
 import CTABanner from "@/app/home/components/CTABanner";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import GallerySection from "@/app/home/components/GallerySection";
 import ReadyCTA from "@/app/home/components/ReadyCTA";
 
